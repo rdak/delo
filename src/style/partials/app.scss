@@ -1,0 +1,27 @@
+@import "../../bower_components/normalize.css/normalize.css";
+@import "../bootstrap/bs";
+
+@import "common/fonts";
+@import "common/header";
+@import "common/feedback-form";
+@import "common/common";
+@import "common/footer";
+@import "common/page_preloader";
+@import "common/popup";
+
+@import "slider";
+@import "main_slider";
+@import "list_services_slider";
+
+
+@import "about";
+@import "contacts";
+
+
+body, html{
+	height: 100%;
+}
+
+#page-wrap{
+	min-height: 100%;
+}

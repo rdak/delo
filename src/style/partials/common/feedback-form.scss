@@ -1,0 +1,16 @@
+.feedback{
+	text-align: right;
+	.form-wrapper{
+	    width: 100%;
+	    max-width: 280px;
+	    display: inline-block;
+	    text-align: left;
+	}
+	.btn-wrapper{
+		text-align: right;
+	}
+
+	.js-submit{
+		text-transform: uppercase;
+	}
+}

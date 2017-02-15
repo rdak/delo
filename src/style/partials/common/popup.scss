@@ -1,0 +1,86 @@
+.popup{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    
+    z-index: 10000;
+    transition: height .9s cubic-bezier(.86,0,.07,1);
+    &.open{
+    	height: 100%;
+    }
+    .popup-outer{
+	    height: 100vh;
+	    width: 100%;
+	    left: 0;
+	    bottom: 0;
+	    right: 0;
+	    top: 0;
+	    z-index: -1;
+	    position: absolute;
+		background: url('/img/bg-images/bg-popup-blured.png') center center no-repeat;
+	    background-size: cover;
+    }
+
+    .popup-inner{
+        max-width: 600px;
+	    max-height: 100%;
+	    margin: auto;
+	    margin-top: 300px;
+	    right: 0;
+	    left: 0;
+	    bottom: 0;
+	    top: 0;
+    }
+
+    .js-close{
+	    position: absolute;
+	    right: 0;
+	    top: -35px;
+	    color: rgba(255,255,255,0.5);
+	    &:hover{
+	    	color: #fff;
+	    }
+    }
+
+    .form-title{
+    	font-size: 36px;
+    	line-height: 42px;
+    	color: #fff;
+    	text-align: center;
+    	margin-bottom: 40px;
+    }
+
+    .input-group{
+    	margin: 0 auto;
+    	width: 280px;
+    	border: 2px solid #ac5c00;
+    	margin-bottom: 25px;
+    	input{
+    		outline: none;
+    		border:none;
+    		width: 100%;
+    		margin:0;
+    		background: transparent;
+    		padding: 8px 20px;
+    		border-bottom: 2px solid #ac5c00;
+    		&:last-child{
+    			border:none;
+    		}
+    	}
+    }
+
+    .btn-wrapper{
+    	margin: 0 auto;
+    	width: 280px;
+		text-align: right;
+    	a{
+    		color: #fff;
+    		font-size: 16px;
+    		line-height: 24px;
+    		letter-spacing: 1px;
+    	}
+    }
+}

@@ -1,0 +1,20 @@
+#page-wrap{
+}
+
+.title{
+	font-size: 30px;
+	line-height: 36px;
+	font-family: YesevaOne;
+	letter-spacing: 0.2px;
+}
+
+.img-wrapper{
+	img{
+		max-width: 100%;
+		min-height: 100%;
+	}
+}
+
+.img-wrapper.js-popup img{
+	cursor: url(/img/icons/zoom.svg), pointer;
+}

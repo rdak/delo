@@ -1,0 +1,30 @@
+.preloader-page{
+	z-index: 10000;
+	background: #fff;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	.pleloader-page_inner{
+		width: 100%;
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 300px 15px;
+	}
+
+	.loading_bar{
+		background: #ac5c00;
+		height: 30px;
+		width: 0%;
+		margin-bottom: 100px;
+		transition: width .8s cubic-bezier(.19,1,.22,1);
+	}
+
+	.loading_sign{
+		font-size: 25vw;
+		line-height: 1;
+	}
+}

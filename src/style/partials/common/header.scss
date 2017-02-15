@@ -1,0 +1,10 @@
+.header{
+	height: 90px;
+	@media (min-width: 768px){
+		height: 115px;
+	}
+
+	.nav>li>a:focus, .nav>li>a:hover{
+		background: transparent;
+	}
+}

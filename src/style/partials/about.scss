@@ -1,0 +1,91 @@
+.about-block{
+	.title{
+		margin-bottom: 15px;
+	}
+
+	.about,
+	.feedback{
+		margin-bottom: 36px;
+		@media (min-width: 768px){
+			margin-bottom: 60px;
+		}
+	}
+}
+
+.input-group{
+	display: inline-block;
+    width: 100%;
+    max-width: 280px;
+	border: 2px solid #ac5c00;
+	margin-bottom: 25px;
+	input{
+		outline: none;
+		border:none;
+		width: 100%;
+		margin:0;
+		background: transparent;
+		padding: 8px 20px;
+		border-bottom: 2px solid #ac5c00;
+		&:last-child{
+			border:none;
+		}
+	}
+}
+
+.recom-block{
+	.recom-block-title{
+		margin-bottom: 45px;
+		@media (min-width: 768px){
+			margin-bottom: 36px;
+		}
+	}
+
+	.recom-letter{
+		opacity: 0.8;
+		margin-bottom: 30px;
+	}
+
+	.recom-info{
+		font-size: 14px;
+		line-height: 20px;
+		margin-bottom: 8px;
+		font-weight: bold;
+		overflow: hidden;
+
+		.recom-date,
+		.recom-author,
+		.recom-divider{
+			float: left;
+		}
+
+		.recom-divider{
+			margin: 5px 8px;
+			width: 1px;
+			height: 10px;
+			border-left: 1px solid #ac5c00;
+		}
+	}
+
+	.recom-list{
+		.recom-item{
+			margin-bottom: 50px;
+			@media (min-width: 768px){
+				margin-bottom: 72px;
+			}
+		}
+	}
+
+	.recom-title{
+		margin-bottom: 6px;
+	}
+
+	.recom-description{
+		letter-spacing: 0.1px;
+	}
+
+	.img-list{
+		.row > div:nth-of-type(even){
+			text-align: right;
+		}
+	}
+}
