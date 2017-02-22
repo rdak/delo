@@ -15,10 +15,12 @@
     "tests"
   ],
   "dependencies": {
+    "jQuery.dotdotdot": "*",
     "bootstrap-sass": "*",
     "normalize.css": "*",
     "jquery": "2.*",
     "hammerjs": "*",
-    "jquery-mousewheel" : "*"
+    "jquery-mousewheel": "*",
+    "slick-carousel": "^1.6.0"
   }
 }

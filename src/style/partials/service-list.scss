@@ -1,0 +1,50 @@
+.articles_list-block{
+	.title{
+		margin-bottom: 20px;
+	}
+	.article-item{
+		padding-bottom: 30px;
+		.article-preview{
+			margin-bottom: 15px;
+		}
+
+		.article-date{
+			font-weight: bold;
+			font-size: 14px;
+			line-height: 20px;
+			margin-bottom: 5px;
+		}
+
+		.article-title{
+			font-size: 20px;
+			font-weight: bold;
+			line-height: 26px;
+			margin-bottom: 15px;
+		}
+
+		.article-lead_text{
+			font-size: 16px;
+			line-height: 24px;
+			margin-bottom: 20px;
+			height: 72px;
+			display: inline-block;
+		}
+
+		.article-btn_wrapper{
+			text-align: left;
+			text-transform: uppercase;
+		}
+	}
+
+	@media (min-width: $screen-sm){
+		.title{
+			margin-bottom: 25px;
+		}
+		.article-item{
+			padding-bottom: 40px;
+			.article-preview{
+				margin-bottom: 10px;
+			}
+		}
+	}
+}

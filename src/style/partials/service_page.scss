@@ -1,0 +1,29 @@
+.service-info-title{
+	margin-bottom: 30px;
+}
+
+.service-description{
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.1px;
+	margin-bottom: 50px;
+}
+
+.service-price-block{
+	margin-bottom: 30px;
+	.title{
+		margin-bottom: 15px;
+	}
+}
+
+@media (min-width: $screen-sm){
+	.service-info-title{
+		margin-bottom: 25px;
+	}
+	.service-description{
+		margin-bottom: 0;
+	}
+	.service-price-block{
+		margin-bottom: 35px;
+	}
+}

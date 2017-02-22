@@ -2,12 +2,13 @@
 <html>
 <head lang="ru">
     <meta charset="UTF-8">
-    <title>Я собираю проекты как рок звезда</title>
+    <title>Дело чести</title>
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
 
     <link rel="stylesheet" href="css/main.css">
-    <script src="js/article.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
 	<div class="preloader-page">
@@ -16,7 +17,7 @@
 			<div class="loading_sign">00</div>
 		</div>
 	</div>
-    <div id="page-wrap">
+    <div id="page-wrap" style="display: none;">
         <div class="header">
         	<nav class="navbar navbar-fixed-top">
         	  	<div class="container">
@@ -31,71 +32,91 @@
         		    </div>
         		    <nav class="navbar-collapse collapse" id="bs-navbar">
         		    	<ul class="nav navbar-nav">
-        					<li class="active"><a class="" href="#">О компании</a></li>
-        					<li><a class="" href="#">Услуги</a></li>
-        					<li><a class="" href="#">Блог</a></li>
-        					<li><a class="" href="#">Контакты</a></li>
+        					<li class="active"><a class="" href="/about.html">О компании</a></li>
+        					<li><a class="" href="/service_list.html">Услуги</a></li>
+        					<li><a class="" href="/blog.html">Блог</a></li>
+        					<li><a class="" href="/contacts.html">Контакты</a></li>
         		    	</ul>
         				<ul class="nav navbar-nav navbar-right">
-        					<li><a class="" href="#"><img src="/img/icons/fb.svg" alt=""></a></li>
-        					<li><a class="" href="#"><img src="/img/icons/twitter.svg" alt=""></a></li>
-        					<li><a class="" href="#"><img src="/img/icons/vk.svg" alt=""></a></li>
+        					<li><a class="" href="https://www.facebook.com/"><img src="/img/icons/fb.svg" alt=""></a></li>
+        					<li><a class="" href="https://www.vk.com/"><img src="/img/icons/twitter.svg" alt=""></a></li>
+        					<li><a class="" href="https://twitter.com/"><img src="/img/icons/vk.svg" alt=""></a></li>
         					<li><a class="" href="#">eng</a></li>
         				</ul>
         			</nav>
         		</div>
         	</nav>
         </div>
-        <div class="container">
-        	<div class="row">
-        		<div class="col-xs-12 col-md-6">
-        			<div class="img-wrapper">
-        				<img src="https://api.fnkr.net/testimg/470x350/00CED1/FFF/?text=img+placeholder">
-        			</div>
-        		</div>
-        		<div class="col-xs-12 col-md-6">
-        			<h1 class="article-title">Постановление об отмене административного выдворения отменено</h1>
-        			<div class="article-info">
-        				<p class="article-date">20 декабря 2016</p>
-        				<p class="article-comments_count"><i class="fa"></i> 13</p>
-        				<p class="article-comments_count"><i class="fa"></i> 123</p>
-        			</div>
-        		</div>
-        		<div class="col-xs-12">
-        			<div class="article-body">
-        				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto rerum nesciunt aperiam eveniet voluptas sit modi tenetur minus voluptates nihil, dolore impedit, facilis sapiente omnis labore dolorem deleniti blanditiis nobis?</p>
-        				<p>Lorem ipsum dolor sit amet.</p>
-        				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, rerum!</p>
-        				<div class="img-list">
-        					<div class="img-wrapper">
-        						<img src="https://api.fnkr.net/testimg/280x380/00CED1/FFF/?text=img+placeholder">
-        					</div>
-        					<div class="img-wrapper">
-        						<img src="https://api.fnkr.net/testimg/280x380/00CED1/FFF/?text=img+placeholder">
-        					</div>
-        				</div>
-        				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, rerum!</p>
-        				<div class="img-list img-list-popup">
-        					<div class="img-wrapper js-popup">
-        						<img src="https://api.fnkr.net/testimg/280x380/00CED1/FFF/?text=popup">
-        					</div>
-        					<div class="img-wrapper js-popup">
-        						<img src="https://api.fnkr.net/testimg/280x380/00CED1/FFF/?text=popup">
-        					</div>
-        					<div class="img-wrapper js-popup">
-        						<img src="https://api.fnkr.net/testimg/280x380/00CED1/FFF/?text=popup">
-        					</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
+        <div id="page-content">
+            <div class="container article-full">
+            	<div class="row article-intro">
+            		<div class="col-xs-12 col-md-6">
+            			<div class="img-wrapper article-img">
+            				<img src="/img/misc/blog-article-main.jpg">
+            			</div>
+            		</div>
+            		<div class="col-xs-12 col-md-6">
+            			<h1 class="article-title title">Постановление об отмене административного выдворения отменено</h1>
+            			<div class="article-info">
+            				<p class="article-date">20 декабря 2016</p>
+            				<p class="article-comments"><img src="/img/icons/comments.svg"> 13</p>
+            				<p class="article-views"><img src="/img/icons/views.svg"> 123</p>
+            			</div>
+            		</div>
+            	</div>
+            	<div class="row article-body">
+            		<div class="col-xs-12">
+            			<div class="article-description">
+            				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto rerum nesciunt aperiam eveniet voluptas sit modi tenetur minus voluptates nihil, dolore impedit, facilis sapiente omnis labore dolorem deleniti blanditiis nobis?</p>
+            				<p>Lorem ipsum dolor sit amet.</p>
+            				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, rerum!</p>
+            				<div class="img-list">
+            					<div class="row">
+            						<div class="col-xs-12 col-sm-6 col-md-4">
+            							<div class="img-wrapper">
+            								<img src="/img/misc/blog-article-img.jpg">
+            							</div>
+            						</div>
+            						<div class="col-xs-12 col-sm-6 col-md-4">
+            							<div class="img-wrapper">
+            								<img src="/img/misc/blog-article-img.jpg">
+            							</div>
+            						</div>
+            					</div>
+            				</div>
+            				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, rerum!</p>
+            				<div class="img-list img-list-popup">
+            					<div class="row">
+            						<div class="col-xs-12 col-sm-6 col-md-4">
+            							<div class="img-wrapper js-popup">
+            								<img class="carousel-item" src="/img/misc/blog-article-docs.jpg" data-source="/img/misc/blog-article-docs.jpg" data-index="0">
+            							</div>
+            						</div>
+            						<div class="col-xs-12 col-sm-6 col-md-4">
+            							<div class="img-wrapper js-popup">
+            								<img class="carousel-item" src="/img/misc/blog-article-docs.jpg" data-source="/img/misc/blog-article-docs.jpg" data-index="1">
+            							</div>
+            						</div>
+            						<div class="col-xs-12 col-sm-6 col-md-4">
+            							<div class="img-wrapper js-popup">
+            								<img class="carousel-item" src="/img/misc/blog-article-docs.jpg" data-source="/img/misc/blog-article-docs.jpg" data-index="2">
+            							</div>
+            						</div>
+            					</div>
+            				</div>
+            			</div>
+            		</div>
+            	</div>
+            </div>
         </div>
 	    <div class="hfooter"></div>
     </div>
     <div class="popup popup-feedback-form">
     	<div class="popup-outer"></div>
     	<div class="popup-inner">
-    		<a href="#" class="js-close">X</a>
+    		<a href="#" class="js-close">
+    			<img src="/img/icons/close.svg" alt="">
+    		</a>
     		<div class="form-wrapper">
     			<div class="form-title">
     				Получить бесплатную консультацию юриста
@@ -113,22 +134,34 @@
     		</div>
     	</div>
     </div>
+    
+    <div class="popup popup-carousel">
+    	<div class="popup-outer"></div>
+    	<div class="popup-inner">
+    		<a href="#" class="js-close">
+    			<img src="/img/icons/close.svg" alt="">
+    		</a>
+    		<div class="popup-body">
+    			<div class="js-slick_carousel"></div>
+    		</div>
+    	</div>
+    </div>
     <footer class="footer">
     	<div class="container">
     		<div class="row links">
-    			<div class="col-sm-2 col-xs-12">
+    			<div class="col-xs-12 col-sm-12 col-md-2">
     				<a href="/" class="brand btn-hover">
     					<img src="/img/logo-footer.png" alt="">
     				</a>
     			</div>
-    			<div class="col-sm-8 col-xs-12 text-center">
+    			<div class="col-xs-12 col-sm-12 col-md-8">
     				<ul class="navigation">
     			        <li>+7 (495) 812-11-88</li>
     			        <li>hello@delo4.com</li>
     			        <li>Москва, Лесная 3, офис 101</li>
     			    </ul>
     			</div>
-    			<div class="col-sm-2 col-xs-12">
+    			<div class="col-xs-12 col-sm-12 col-md-2">
     				<div class="social">
     					<a href="#" target="_blank"><img src="/img/icons/fb.svg" alt=""></a>
     					<a href="#" target="_blank"><img src="/img/icons/twitter.svg" alt=""></a>

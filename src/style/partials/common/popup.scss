@@ -25,23 +25,84 @@
     }
 
     .popup-inner{
+        position: relative;
         max-width: 600px;
-	    max-height: 100%;
-	    margin: auto;
-	    margin-top: 300px;
+	    max-height: 60vh;
+	    margin: 20vh auto;
 	    right: 0;
 	    left: 0;
 	    bottom: 0;
 	    top: 0;
+        .slick-track {
+            position: relative;
+            top: 0;
+            left: 0;
+            display: block;
+        }
+        
+        .slick-list {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .slick-prev, .slick-next {
+            position: absolute;
+            top: 50%;
+            display: block;
+            width: 20px;
+            height: 20px;
+            margin-top: -10px;
+            padding: 0;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.5;
+            &:hover{
+                opacity: 1;
+            }
+        }
+        
+        .slick-prev {
+            left: 25px;
+            background: url(/img/icons/arrow-left-popup-img.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 100% 100%;
+        }
+
+        .slick-next {
+            right: 25px;
+            background: url(/img/icons/arrow-right-popup-img.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 100% 100%;
+        }
+        
+        .img-wrapper{
+            text-align: center;
+        }
+
+        .slick-initialized .slick-slide{
+            display: block;
+        }
+
+        .slick-slide{
+            float: left;
+            height: 100%;
+            min-height: 1px;
+        }
     }
 
     .js-close{
 	    position: absolute;
-	    right: 0;
+	    right: 25px;
 	    top: -35px;
-	    color: rgba(255,255,255,0.5);
-	    &:hover{
-	    	color: #fff;
+    	color: #fff;
+        opacity: 0.5;
+        &:hover{
+            color: #fff;
+            opacity: 1;
 	    }
     }
 
@@ -54,22 +115,8 @@
     }
 
     .input-group{
-    	margin: 0 auto;
-    	width: 280px;
-    	border: 2px solid #ac5c00;
-    	margin-bottom: 25px;
-    	input{
-    		outline: none;
-    		border:none;
-    		width: 100%;
-    		margin:0;
-    		background: transparent;
-    		padding: 8px 20px;
-    		border-bottom: 2px solid #ac5c00;
-    		&:last-child{
-    			border:none;
-    		}
-    	}
+    	margin: 0 auto 25px;
+        display: block;
     }
 
     .btn-wrapper{

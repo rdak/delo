@@ -1,10 +1,16 @@
 .feedback{
 	text-align: right;
+	margin-bottom: 65px;
+	@media (min-width: $screen-sm){
+	    margin: 0;
+	}
 	.form-wrapper{
 	    width: 100%;
 	    max-width: 280px;
-	    display: inline-block;
 	    text-align: left;
+		@media (min-width: $screen-sm){
+		    display: inline-block;
+		}
 	}
 	.btn-wrapper{
 		text-align: right;
@@ -12,5 +18,29 @@
 
 	.js-submit{
 		text-transform: uppercase;
+	}
+
+	.form-title{
+		margin-bottom: 20px;
+	}
+
+	.input-group{
+		display: inline-block;
+	    width: 100%;
+	    max-width: 280px;
+		border: 2px solid #ac5c00;
+		margin-bottom: 25px;
+		input{
+			outline: none;
+			border:none;
+			width: 100%;
+			margin:0;
+			background: transparent;
+			padding: 8px 20px;
+			border-bottom: 2px solid #ac5c00;
+			&:last-child{
+				border:none;
+			}
+		}
 	}
 }

@@ -170,6 +170,7 @@
   float: left;
   padding: 0 $navbar-padding-horizontal;
   width: 120px;
+  margin-right: 140px;
 
   &:hover,
   &:focus {
@@ -238,7 +239,11 @@
 
 .navbar-nav {
   margin: ($navbar-padding-vertical / 2) (-$navbar-padding-horizontal);
-
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
   > li > a {
     padding-top:    10px;
     padding-bottom: 10px;
@@ -280,6 +285,13 @@
         padding-top:    $navbar-padding-vertical;
         padding-bottom: $navbar-padding-vertical;
       }
+    }
+  }
+
+  &.navbar-right{
+    display: inline-block;
+    > li{
+      float: left;
     }
   }
 }
@@ -388,7 +400,7 @@
   }
   .navbar-right {
     float: right !important;
-  margin-right: -$navbar-padding-horizontal;
+    margin-right: -$navbar-padding-horizontal;
 
     ~ .navbar-right {
       margin-right: 0;

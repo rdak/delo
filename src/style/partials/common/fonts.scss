@@ -7,16 +7,44 @@
 
 @font-face {
 	font-family: Proxima;
-	src: url("../fonts/Proxima Nova Bold.otf") format("opentype");
+	src: url("../fonts/Proxima Nova/Proxima Nova Bold.otf") format("opentype");
 	font-style: normal;
 	font-weight: bold;
 }
 
 @font-face {
 	font-family: Proxima;
-	src: url("../fonts/Proxima Nova Extra Condensed Bold.otf") format("opentype");
+	src: url("../fonts/Proxima Nova/Proxima Nova Extrabold.otf") format("opentype");
 	font-style: normal;
 	font-weight: 800;
+}
+
+@font-face {
+	font-family: Proxima;
+	src: url("../fonts/Proxima Nova/Proxima Nova Semibold.otf") format("opentype");
+	font-style: normal;
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: Proxima;
+	src: url("../fonts/Proxima Nova/Proxima Nova Regular Italic.otf") format("opentype");
+	font-style: italic;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: Proxima;
+	src: url("../fonts/Proxima Nova/Proxima Nova Semibold Italic.otf") format("opentype");
+	font-style: italic;
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: Proxima;
+	src: url("../fonts/Proxima Nova/Proxima Nova Bold Italic.otf") format("opentype");
+	font-style: italic;
+	font-weight: bold;
 }
 
 @font-face {

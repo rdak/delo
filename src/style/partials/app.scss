@@ -1,4 +1,6 @@
 @import "../../bower_components/normalize.css/normalize.css";
+//@import "../../bower_components/slick-carousel/slick/slick.scss";
+
 @import "../bootstrap/bs";
 
 @import "common/fonts";
@@ -11,11 +13,12 @@
 
 @import "slider";
 @import "main_slider";
-@import "list_services_slider";
-
+@import "service-list";
 
 @import "about";
+@import "service_page";
 @import "contacts";
+@import "article_page";
 
 
 body, html{

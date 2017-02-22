@@ -2,23 +2,20 @@
 <html>
 <head lang="ru">
     <meta charset="UTF-8">
-    <title>Я собираю проекты как рок звезда</title>
+    <title>Дело чести</title>
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
 
     <link rel="stylesheet" href="css/main.css">
-    <script src="http://underscorejs.ru/underscore.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="js/main.js"></script>
 </head>
 <body>
 	//= templates/common-partials/preloader.html
-    <div id="page-wrap">
+    <div id="page-wrap" style="display: none;">
         //= templates/common-partials/header.html
-        <div class="main-slider-wrapper">
-            //= templates/main_slider.html
-        </div>
-        <div class="slider-wrapper">
-            <!-- //= templates/list_services_slider.html -->
+        <div id="page-content">
+            //= templates/index-content.html
         </div>
 	    <div class="hfooter"></div>
     </div>
