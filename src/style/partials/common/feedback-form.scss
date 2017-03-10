@@ -1,23 +1,19 @@
 .feedback{
 	text-align: right;
 	margin-bottom: 65px;
-	@media (min-width: $screen-sm){
+	@media (min-width: $screen-md){
 	    margin: 0;
 	}
 	.form-wrapper{
 	    width: 100%;
 	    max-width: 280px;
 	    text-align: left;
-		@media (min-width: $screen-sm){
+		@media (min-width: $screen-md){
 		    display: inline-block;
 		}
 	}
 	.btn-wrapper{
 		text-align: right;
-	}
-
-	.js-submit{
-		text-transform: uppercase;
 	}
 
 	.form-title{
@@ -29,18 +25,74 @@
 	    width: 100%;
 	    max-width: 280px;
 		border: 2px solid #ac5c00;
+		border-bottom: none;
+		border-top: none;
+
 		margin-bottom: 25px;
+
+		.field-wrapper {
+		    position: relative;
+		}
+		
+		input.not-empty + .placeholder,
+		input:focus + .placeholder{
+			display: none;
+		}
+
+		.placeholder {
+		    position: absolute;
+		    padding: 8px 20px;
+		    top: 0;
+		    color: #3c3c3c;
+		    z-index: -1;
+		    .required{
+		    	color: #ac5c00;
+		    }
+		}
+
 		input{
 			outline: none;
 			border:none;
 			width: 100%;
 			margin:0;
 			background: transparent;
-			padding: 8px 20px;
+			padding: 7px 20px;
 			border-bottom: 2px solid #ac5c00;
-			&:last-child{
-				border:none;
+			border-radius: 0;
+			letter-spacing: 0.1px;
+		}
+
+		.field-wrapper:first-child{
+			input{
+			    border-top: 2px solid #ac5c00;
+			    padding: 6px 20px;
 			}
+		}
+		.field-wrapper.error{
+			.errorMessage{
+		        position: absolute;
+			    right: 8px;
+			    border-radius: 20px;
+			    top: 9px;
+			    color: transparent;
+			    font-size: 13px;
+			    background: url(/img/icons/exclamation_bg.svg) no-repeat;
+			    background-size: 100% 100%;
+			    width: 20px;
+			    height: 20px;
+			}
+		}
+	}
+
+	.tooltip{
+		&.bottom{
+			right:0;
+		}
+		.tooltip-inner{
+			padding: 0;
+		}
+		.tooltip-arrow{
+			right: 13px;
 		}
 	}
 }

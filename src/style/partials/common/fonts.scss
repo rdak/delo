@@ -1,4 +1,11 @@
 @font-face {
+	font-family: ProximaCond;
+	src: url("../fonts/Proxima Nova Condensed Bold.otf") format("opentype");
+	font-style: normal;
+	font-weight: 600;
+}
+
+@font-face {
 	font-family: Proxima;
 	src: url("../fonts/Proxima Nova/Proxima Nova Regular.otf") format("opentype");
 	font-style: normal;
@@ -48,8 +55,11 @@
 }
 
 @font-face {
-	font-family: YesevaOne;
-	src: url("../fonts/YesevaOne-Regular.ttf") format("opentype");
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'Yeseva One';
+  src: url("../fonts/YesevaOne-Regular.ttf");
+  font-style: normal;
+  font-weight: normal;
 }
+
+
+

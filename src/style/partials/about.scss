@@ -6,8 +6,18 @@
 	.about,
 	.feedback{
 		margin-bottom: 35px;
-		@media (min-width: $screen-sm){
+		@media (min-width: $screen-md){
 			margin-bottom: 60px;
+		}
+	}
+}
+
+.recom-link{
+	color: #3c3c3c;
+	&:hover{
+		color: #3c3c3c;
+		.recom-title{
+			color: #ac5c00;
 		}
 	}
 }
@@ -15,7 +25,7 @@
 .recom-block{
 	.recom-block-title{
 		margin-bottom: 45px;
-		@media (min-width: $screen-sm){
+		@media (min-width: $screen-md){
 			margin-bottom: 36px;
 		}
 	}
@@ -28,14 +38,14 @@
 	.recom-info{
 		font-size: 14px;
 		line-height: 20px;
-		margin-bottom: 8px;
+		margin-bottom: 10px;
 		font-weight: bold;
 		overflow: hidden;
 
 		.recom-date,
-		.recom-author,
 		.recom-divider{
 			float: left;
+			margin-bottom: 0;
 		}
 
 		.recom-divider{
@@ -44,19 +54,27 @@
 			height: 10px;
 			border-left: 1px solid #ac5c00;
 		}
+
+		.recom-author{
+			margin-bottom: 0;			
+		}
 	}
 
 	.recom-list{
 		.recom-item{
 			margin-bottom: 50px;
-			@media (min-width: $screen-sm){
+			@media (min-width: $screen-md){
 				margin-bottom: 72px;
 			}
 		}
 	}
 
 	.recom-title{
-		margin-bottom: 6px;
+		font-size: 20px;
+		line-height: 24px;
+		margin-bottom: 5px;
+		font-family: Proxima;
+		font-weight: bold;
 	}
 
 	.recom-description{
@@ -67,7 +85,7 @@
 		.img-wrapper{
 			margin-bottom: 35px;
 		}
-		@media (min-width: $screen-sm){
+		@media (min-width: $screen-md){
 			.img-wrapper{
 				text-align: left;
 			}

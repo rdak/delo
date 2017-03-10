@@ -14,14 +14,22 @@
 	.title{
 		margin-bottom: 15px;
 	}
+	.service-price{
+		font-size: 20px;
+		line-height: 26px;
+		margin: 0;
+	}
 }
 
-@media (min-width: $screen-sm){
+@media (min-width: $screen-md){
 	.service-info-title{
 		margin-bottom: 25px;
 	}
 	.service-description{
-		margin-bottom: 0;
+		margin-bottom: 35px;
+		p{
+			margin: 0;
+		}
 	}
 	.service-price-block{
 		margin-bottom: 35px;

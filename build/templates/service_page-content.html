@@ -1,8 +1,10 @@
 <div class="container">
+	<div class="breadcrumbs">
+		<a href="/index.html" class="link_back" data-index="2">Все услуги</a>
+	</div>
 	<div class="service-block">
 		<div class="row">
-
-			<div class="col-xs-12 col-sm-6 col-md-8">
+			<div class="col-xs-12 col-sm-6 col-lg-8">
 				<div class="service-info">
 					<h1 class="service-info-title title">Регистрация обременений на объект недвижимости в Москве и МО</h1>
 					<div class="service-description">
@@ -11,29 +13,6 @@
 						</p>
 					</div>
 				</div>
-			</div>
-
-			<div class="col-xs-12 col-sm-6 col-md-4">
-				<div class="feedback">
-					<div class="form-wrapper">
-						<div class="form-title title">
-							Заказать услугу
-						</div>
-						<div class="form">
-							<div class="input-group">
-								<input type="text" placeholder="Имя">
-								<input type="text" placeholder="Телефон">
-								<input type="text" placeholder="Email">
-							</div>
-							<div class="btn-wrapper">
-								<a href="#" class="js-submit">Заказать</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-xs-12">
 				<div class="service-price-block">
 					<h2 class="service-price-title title">Стоимость услуги</h2>
 					<div class="service-price">
@@ -43,73 +22,54 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
 
-	<div class="articles_list-block">
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-8">
-				<h2 class="title article-block-title">
-					Успешные дела
-				</h2>
-				<div class="article-list">
-					<div class="row">
-						<div class="col-xs-12 col-sm-6">
-							<div class="article-item">
-								<div class="article-preview">
-									<div class="img-wrapper">
-										<img src="https://api.fnkr.net/testimg/280x180/00CED1/FFF/?text=img+placeholder">
-									</div>
+			<div class="col-xs-12 col-sm-6 col-lg-4">
+				<div class="feedback">
+					<div class="form-wrapper">
+						<div class="form-title title">
+							Заказать услугу
+						</div>
+						<div class="form">
+							<div class="input-group">
+								<div class="field-wrapper">
+									<input class="field_name field_required" type="text">
+									<div class="placeholder">Имя<span class="required">*</span></div>
+									<div class="errorMessage"></div>
 								</div>
-								<div class="article-date">
-									20 декабря 2016
+								<div class="field-wrapper">
+									<input class="field_email field_required" type="text">
+									<div class="placeholder">Email<span class="required">*</span></div>
+									<div class="errorMessage"></div>
 								</div>
-								<div class="article-title">
-									Выдворение из России за то, что не оплачен патент на работу
-								</div>
-								<div class="article-lead_text">
-									Да, такая санкция имеет место быть, если Вы действительно не оплачивали патент. Объясняем все по порядку
-								</div>
-								<div class="article-btn_wrapper">
-									<a href="#" class="read-more">Подробнее</a>
+								<div class="field-wrapper">
+									<input class="field_phone" type="text">
+									<div class="placeholder">Телефон</div>
+									<div class="errorMessage"></div>
 								</div>
 							</div>
-						</div>
-						<div class="col-xs-12 col-sm-6">
-							<div class="article-item">
-								<div class="article-preview">
-									<div class="img-wrapper">
-										<img src="https://api.fnkr.net/testimg/280x180/00CED1/FFF/?text=img+placeholder">
-									</div>
-								</div>
-								<div class="article-date">
-									20 декабря 2016
-								</div>
-								<div class="article-title">
-									Выдворение из России за то, что не оплачен патент на работу
-								</div>
-								<div class="article-lead_text">
-									Да, такая санкция имеет место быть, если Вы действительно не оплачивали патент. Объясняем все по порядкуasd sd
-								</div>
-								<div class="article-btn_wrapper">
-									<a href="#" class="read-more">Подробнее</a>
-								</div>
+							<div class="btn-wrapper">
+								<a href="#" class="js-submit link_next">ОТПРАВИТЬ</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-12 col-md-4">
+		</div>
+	</div>
+
+	<div class="articles_list-block">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-lg-8">
 				<h2 class="title article-block-title">
-					Cтатьи по теме
+					<a href="/success.html">Успешные дела</a>
 				</h2>
-				<div class="article-list">
+				<div class="article-list success_list">
 					<div class="row">
-						<div class="col-xs-12 col-sm-12">
-							<div class="article-item">
+						<div class="col-xs-12 col-sm-6">
+							<a href="/article.html" class="article-item">
 								<div class="article-preview">
 									<div class="img-wrapper">
-										<img src="https://api.fnkr.net/testimg/280x180/00CED1/FFF/?text=img+placeholder">
+										<img src="/img/misc/blog-article-main.jpg">
 									</div>
 								</div>
 								<div class="article-date">
@@ -122,9 +82,60 @@
 									Да, такая санкция имеет место быть, если Вы действительно не оплачивали патент. Объясняем все по порядку asd ads
 								</div>
 								<div class="article-btn_wrapper">
-									<a href="#" class="read-more">Подробнее</a>
+									<span class="link_next">Подробнее</span>
 								</div>
-							</div>
+							</a>
+						</div>
+						<div class="col-xs-12 col-sm-6">
+							<a href="/article.html" class="article-item">
+								<div class="article-preview">
+									<div class="img-wrapper">
+										<img src="/img/misc/blog-article-main.jpg">
+									</div>
+								</div>
+								<div class="article-date">
+									20 декабря 2016
+								</div>
+								<div class="article-title">
+									Выдворение из России за то, что не оплачен патент на работу
+								</div>
+								<div class="article-lead_text">
+									Да, такая санкция имеет место быть, если Вы действительно не оплачивали патент. Объясняем все по порядку asd ads
+								</div>
+								<div class="article-btn_wrapper">
+									<span class="link_next">Подробнее</span>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-lg-4">
+				<h2 class="title article-block-title">
+					<a href="/blog.html">Cтатьи по теме</a>
+				</h2>
+				<div class="article-list blog_list">
+					<div class="row">
+						<div class="col-xs-12 col-sm-6">
+							<a href="/article.html" class="article-item">
+								<div class="article-preview">
+									<div class="img-wrapper">
+										<img src="/img/misc/blog-article-main.jpg">
+									</div>
+								</div>
+								<div class="article-date">
+									20 декабря 2016
+								</div>
+								<div class="article-title">
+									Выдворение из России за то, что не оплачен патент на работу
+								</div>
+								<div class="article-lead_text">
+									Да, такая санкция имеет место быть, если Вы действительно не оплачивали патент. Объясняем все по порядку asd ads
+								</div>
+								<div class="article-btn_wrapper">
+									<span class="link_next">Подробнее</span>
+								</div>
+							</a>
 						</div>
 					</div>
 				</div>

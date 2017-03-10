@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head lang="ru">
+    <meta charset="UTF-8">
+    <title>Дело чести</title>
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMbbTmpDYiqc1YaCqq0lHmKI8ARq3nCOM"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+	<div class="preloader-page">
+		<div class="pleloader-page_inner">
+			<div class="loading_bar"></div>
+			<div class="loading_sign">00</div>
+		</div>
+	</div>
+    <div id="page-wrap" style="display: none;">
+        <div class="header" id="header">
+        	<nav class="navbar navbar-fixed-top">
+        	  	<div class="container">
+        		    <div class="navbar-header">
+        		      	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-expanded="false">
+        			        <span class="sr-only">Toggle navigation</span>
+        			        <img src="/img/icons/mob-menu.svg">
+        		      	</button>
+        		      	<a class="navbar-brand " href="/">
+        		      		<img src="/img/icons/logo.svg" alt="">
+        	      		</a>
+        		    </div>
+        		    <nav class="navbar-collapse collapse" id="bs-navbar">
+        		    	<ul class="nav navbar-nav">
+        					<li class="active"><a class="" href="/about.html">О компании</a></li>
+        					<li><a class="js-switchSlide" href="/" data-index="2" data-pathname="/">Услуги</a></li>
+        					<li><a class="" href="/blog.html">Блог</a></li>
+        					<li><a class="" href="/contacts.html">Контакты</a></li>
+        					<li><a href="skype:+74958121188?call">+7 (495) 812-11-88</a></li>
+        		    	</ul>
+        				<ul class="nav navbar-nav navbar-right">
+        					<li><a class="social_item" target="_blank" href="https://www.facebook.com/"><img src="/img/icons/fb.svg" alt=""></a></li>
+        					<li><a class="social_item" target="_blank" href="https://twitter.com/"><img src="/img/icons/twitter.svg" alt=""></a></li>
+        					<li><a class="social_item" target="_blank" href="https://www.vk.com/"><img src="/img/icons/vk.svg" alt=""></a></li>
+        					<li><a class="" href="/error-page.html">eng</a></li>
+        				</ul>
+        			</nav>
+        		</div>
+        	</nav>
+        </div>
+        <div id="page-content">
+            <div class="line_loader hide"></div>
+            <div class="content">
+                <div class="container">
+                	<div class="row">
+                		<div class="col-xs-12 col-md-6 col-lg-8">
+                			<div class="error-content">
+                				404
+                				<div class="corner"></div>
+                			</div>
+                		</div>
+                		<div class="col-xs-12 col-md-6 col-lg-4">
+                			<span class="error-sign">Нет<br>такой<br>страницы</span>
+                		</div>
+                	</div>
+                	<div class="row">
+                		<div class="col-xs-12">
+                			<a class="link_back" href="/">На главную</a>
+                		</div>
+                	</div>
+                </div>
+            </div>
+        </div>
+	    <div class="hfooter"></div>
+    </div>
+    <div class="popup popup-feedback-form">
+    	<div class="popup-outer"></div>
+    	<div class="popup-inner container">
+    		<a href="#" class="js-close">
+    			<img src="/img/icons/close.svg" alt="">
+    		</a>
+    		<div class="form-wrapper">
+    			<div class="form-title">
+    				Получить<br>консультацию юриста
+    			</div>
+    			<div class="form feedback">
+    				<div class="input-group">
+    					<div class="field-wrapper">
+    						<input class="field_name field_required" type="text">
+    						<div class="placeholder">Имя<span class="required">*</span></div>
+    						<div class="errorMessage"></div>
+    					</div>
+    					<div class="field-wrapper">
+    						<input class="field_email field_required" type="text">
+    						<div class="placeholder">Email<span class="required">*</span></div>
+    						<div class="errorMessage"></div>
+    					</div>
+    					<div class="field-wrapper">
+    						<input class="field_phone" type="text">
+    						<div class="placeholder">Телефон</div>
+    						<div class="errorMessage"></div>
+    					</div>
+    				</div>
+    				<div class="btn-wrapper">
+    					<a href="#" class="js-submit link_next">ОТПРАВИТЬ</a>
+    				</div>
+    			</div>
+    		</div>
+    		<div class="message hide">
+    		</div>
+    	</div>
+    </div>
+    
+    <div class="popup popup-carousel">
+    	<div class="popup-outer"></div>
+    	<div class="popup-inner container">
+    		<a href="#" class="js-close">
+    			<img src="/img/icons/close.svg" alt="">
+    		</a>
+    		<div class="popup-body">
+    			<div class="js-slick_carousel"></div>
+    		</div>
+    	</div>
+    </div>
+    <footer class="footer">
+    	<div class="container">
+    		<div class="row links">
+    			<div class="col-xs-12 col-sm-12 col-lg-2">
+    				<a href="/" class="brand btn-hover">
+    					<img src="/img/icons/logo-footer.svg" alt="">
+    				</a>
+    			</div>
+    			<div class="col-xs-12 col-sm-12 col-lg-8">
+    				<ul class="navigation">
+    			        <li><a href="skype:+74958121188?call">+7 (495) 812-11-88</a></li>
+    			        <li><a href="mailto:hello@delo4.com">hello@delo4.com</a></li>
+    			        <li><a href="/contacts.html">Москва, Лесная 3, офис 101</a></li>
+    			    </ul>
+    			</div>
+    			<div class="col-xs-12 col-sm-12 col-lg-2">
+    				<div class="social">
+    					<a class="social_item" target="_blank" href="https://www.facebook.com/"><img src="/img/icons/fb.svg" alt=""></a>
+    					<a class="social_item" target="_blank" href="https://www.vk.com/"><img src="/img/icons/twitter.svg" alt=""></a>
+    					<a class="social_item" target="_blank" href="https://twitter.com/"><img src="/img/icons/vk.svg" alt=""></a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </footer>
+</body>
+</html>

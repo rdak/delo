@@ -5,8 +5,9 @@
     <title>Дело чести</title>
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-
+    
     <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMbbTmpDYiqc1YaCqq0lHmKI8ARq3nCOM"></script>
     <script src="js/main.js"></script>
 </head>
 <body>
@@ -17,7 +18,7 @@
 		</div>
 	</div>
     <div id="page-wrap" style="display: none;">
-        <div class="header">
+        <div class="header" id="header">
         	<nav class="navbar navbar-fixed-top">
         	  	<div class="container">
         		    <div class="navbar-header">
@@ -26,171 +27,205 @@
         			        <img src="/img/icons/mob-menu.svg">
         		      	</button>
         		      	<a class="navbar-brand " href="/">
-        		      		<img src="/img/logo.png" alt="">
+        		      		<img src="/img/icons/logo.svg" alt="">
         	      		</a>
         		    </div>
         		    <nav class="navbar-collapse collapse" id="bs-navbar">
         		    	<ul class="nav navbar-nav">
         					<li class="active"><a class="" href="/about.html">О компании</a></li>
-        					<li><a class="" href="/service_list.html">Услуги</a></li>
+        					<li><a class="js-switchSlide" href="/" data-index="2" data-pathname="/">Услуги</a></li>
         					<li><a class="" href="/blog.html">Блог</a></li>
         					<li><a class="" href="/contacts.html">Контакты</a></li>
+        					<li><a href="skype:+74958121188?call">+7 (495) 812-11-88</a></li>
         		    	</ul>
         				<ul class="nav navbar-nav navbar-right">
-        					<li><a class="" href="https://www.facebook.com/"><img src="/img/icons/fb.svg" alt=""></a></li>
-        					<li><a class="" href="https://www.vk.com/"><img src="/img/icons/twitter.svg" alt=""></a></li>
-        					<li><a class="" href="https://twitter.com/"><img src="/img/icons/vk.svg" alt=""></a></li>
-        					<li><a class="" href="#">eng</a></li>
+        					<li><a class="social_item" target="_blank" href="https://www.facebook.com/"><img src="/img/icons/fb.svg" alt=""></a></li>
+        					<li><a class="social_item" target="_blank" href="https://twitter.com/"><img src="/img/icons/twitter.svg" alt=""></a></li>
+        					<li><a class="social_item" target="_blank" href="https://www.vk.com/"><img src="/img/icons/vk.svg" alt=""></a></li>
+        					<li><a class="" href="/error-page.html">eng</a></li>
         				</ul>
         			</nav>
         		</div>
         	</nav>
         </div>
         <div id="page-content">
-            <div class="container">
-            	<div class="about-block">
-            		<div class="row">
-            			<div class="col-xs-12 col-sm-6 col-md-8">
-            				<div class="about">
-            					<h1 class="about-title title">О компании</h1>
-            					<div class="about-description">
-            						<p>Наша основная цель: добиться результата с наименьшими тратами. Мы всегда работаем по предоплате, всегда заключаем договор с клиентом, у нас все чисто и прозрачно.</p>
-            						<p>Наша основная цель: добиться результата с наименьшими тратами. Мы всегда работаем по предоплате, всегда заключаем договор с клиентом, у нас все чисто и прозрачно.</p>
-            					</div>
-            				</div>
-            			</div>
-            			<div class="col-xs-12 col-sm-6 col-md-4">
-            				<div class="feedback">
-            					<div class="form-wrapper">
-            						<div class="form-title title">
-            							Напишите нам
-            						</div>
-            						<div class="form">
-            							<div class="input-group">
-            								<input type="text" placeholder="Имя">
-            								<input type="text" placeholder="Телефон">
-            								<input type="text" placeholder="Email">
-            							</div>
-            							<div class="btn-wrapper">
-            								<a href="#" class="js-submit">ОТПРАВИТЬ</a>
-            							</div>
-            						</div>
-            					</div>
-            				</div>
-            			</div>
-            		</div>
-            	</div>
-            
-            	<div class="recom-block">
-            		<h2 class="title recom-block-title">
-            			Нас рекомендуют
-            		</h2>
-            		<div class="recom-list">
-            			<div class="recom-item">
-            				<div class="row">
-            					<div class="col-xs-12 col-sm-12 col-md-4">
-            						<div class="img-wrapper recom-letter">
-            							<img src="/img/misc/letter.jpg">
-            						</div>
-            					</div>
-            					<div class="col-xs-12 col-sm-12 col-md-8">
-            						<div class="recom-info">
-            							<p class="recom-date">20 декабря 2016</p>
-            							<p class="recom-divider"></p>
-            							<p class="recom-author">Кочин Александр, Генеральный директор компании «Стройплюс»</p>
-            						</div>
-            						<div class="recom-title h3">Штраф ФМС</div>
-            						<div class="recom-description">
-            							<p>ФМС назначила штраф 800 000 рублей. Даже для строительной компании – это неподъемная сумма. Планировали закрываться. Рады, что нашелся грамотный миграционный юрист, который снизил штраф в разы. Спасибо, Дело Чести!</p>
-            							<p>Работал без патента, и как итог – выдворение. В России семья, учеба. Избежать выдворения, и отделаться только штрафом помогли специалисты Миграционной Компании. Остался в РФ, закон не нарушаю.</p>
-            							<p>Запрет на въезд в РФ означал лишение дела всей моей жизни – преподавания. Риск был велик. О запрете на въезд я узнал, будучи в США. Нашел Миграционную компанию через google. Спасибо вам, ребята! Я уже в России.</p>
-            						</div>
-            						<div class="img-list img-list-popup">
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-6 col-md-6">
-                                                <div class="img-wrapper js-popup">
-                                                    <img class="carousel-item" src="/img/misc/blog-article-docs.jpg" data-source="/img/misc/blog-article-docs.jpg" data-index="0">
+            <div class="line_loader hide"></div>
+            <div class="content">
+                <div class="container">
+                	<div class="about-block">
+                		<div class="row">
+                			<div class="col-xs-12 col-sm-6 col-lg-8">
+                				<div class="about">
+                					<h1 class="about-title title">О компании</h1>
+                					<div class="about-description">
+                						<p>Наша основная цель: добиться результата с наименьшими тратами. Мы всегда работаем по предоплате, всегда заключаем договор с клиентом, у нас все чисто и прозрачно.</p>
+                						<p>Наша основная цель: добиться результата с наименьшими тратами. Мы всегда работаем по предоплате, всегда заключаем договор с клиентом, у нас все чисто и прозрачно.</p>
+                					</div>
+                				</div>
+                			</div>
+                			<div class="col-xs-12 col-sm-6 col-lg-4">
+                				<div class="feedback">
+                					<div class="form-wrapper">
+                						<div class="form-title title">
+                							Напишите нам
+                						</div>
+                						<div class="form">
+                							<div class="input-group">
+                								<div class="field-wrapper">
+                									<input class="field_name field_required" type="text">
+                									<div class="placeholder">Имя<span class="required">*</span></div>
+                									<div class="errorMessage"></div>
+                								</div>
+                								<div class="field-wrapper">
+                									<input class="field_email field_required" type="text">
+                									<div class="placeholder">Email<span class="required">*</span></div>
+                									<div class="errorMessage"></div>
+                								</div>
+                								<div class="field-wrapper">
+                									<input class="field_phone" type="text">
+                									<div class="placeholder">Телефон</div>
+                									<div class="errorMessage"></div>
+                								</div>
+                							</div>
+                							<div class="btn-wrapper">
+                								<a href="#" class="js-submit link_next">ОТПРАВИТЬ</a>
+                							</div>
+                						</div>
+                					</div>
+                				</div>
+                			</div>
+                		</div>
+                	</div>
+                
+                	<div class="recom-block" id="recommendation-block">
+                		<h2 class="title recom-block-title">
+                			Нас рекомендуют
+                		</h2>
+                		<div class="recom-list">
+                			<div class="recom-item">
+                				<div class="row">
+                					<div class="col-xs-12 col-sm-12 col-md-4">
+                						<div class="img-wrapper recom-letter">
+                							<img src="/img/misc/letter.jpg">
+                						</div>
+                					</div>
+                					<div class="col-xs-12 col-sm-12 col-md-8">
+                						<a href="/service_page.html" class="recom-link">
+                							<div class="recom-info">
+                								<p class="recom-date">20 декабря 2016</p>
+                								<p class="recom-divider"></p>
+                								<p class="recom-author">Кочин Александр, Генеральный директор компании «Стройплюс»</p>
+                							</div>
+                							<div class="recom-title h3">Штраф ФМС</div>
+                							<div class="recom-description">
+                								<p>ФМС назначила штраф 800 000 рублей. Даже для строительной компании – это неподъемная сумма. Планировали закрываться. Рады, что нашелся грамотный миграционный юрист, который снизил штраф в разы. Спасибо, Дело Чести!</p>
+                								<p>Работал без патента, и как итог – выдворение. В России семья, учеба. Избежать выдворения, и отделаться только штрафом помогли специалисты Миграционной Компании. Остался в РФ, закон не нарушаю.</p>
+                								<p>Запрет на въезд в РФ означал лишение дела всей моей жизни – преподавания. Риск был велик. О запрете на въезд я узнал, будучи в США. Нашел Миграционную компанию через google. Спасибо вам, ребята! Я уже в России.</p>
+                							</div>
+                						</a>
+                						<div class="img-list img-list-popup">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-6 col-md-6">
+                                                    <div class="img-wrapper js-popup">
+                                                        <img class="carousel-item" src="/img/misc/blog-article-docs.jpg" data-source="/img/misc/blog-article-docs-source.jpg" data-index="0">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-6 col-md-6">
-                                                <div class="img-wrapper js-popup">
-                                                    <img class="carousel-item" src="/img/misc/blog-article-docs.jpg" data-source="/img/misc/blog-article-docs.jpg" data-index="1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-            					</div>
-            				</div>
-            			</div>
-            			<div class="recom-item">
-            				<div class="row">
-            					<div class="col-xs-12 col-sm-12 col-md-4">
-            						<div class="img-wrapper recom-letter">
-            							<img src="/img/misc/letter.jpg">
-            						</div>
-            					</div>
-            					<div class="col-xs-12 col-sm-12 col-md-8">
-            						<div class="recom-info">
-            							<p class="recom-date">20 декабря 2016</p>
-            							<p class="recom-divider"></p>
-            							<p class="recom-author">Кочин Александр, Генеральный директор компании «Стройплюс»</p>
-            						</div>
-            						<div class="recom-title h3">Штраф ФМС</div>
-            						<div class="recom-description">
-            							<p>ФМС назначила штраф 800 000 рублей. Даже для строительной компании – это неподъемная сумма. Планировали закрываться. Рады, что нашелся грамотный миграционный юрист, который снизил штраф в разы. Спасибо, Дело Чести!</p>
-            							<p>Работал без патента, и как итог – выдворение. В России семья, учеба. Избежать выдворения, и отделаться только штрафом помогли специалисты Миграционной Компании. Остался в РФ, закон не нарушаю.</p>
-            							<p>Запрет на въезд в РФ означал лишение дела всей моей жизни – преподавания. Риск был велик. О запрете на въезд я узнал, будучи в США. Нашел Миграционную компанию через google. Спасибо вам, ребята! Я уже в России.</p>
-            						</div>
-            						<div class="img-list img-list-popup">
-                                        <div class="row">
-                                            <div class="col-xs-12 col-sm-6 col-md-6">
-                                                <div class="img-wrapper js-popup">
-                                                    <img class="carousel-item" src="/img/misc/blog-article-docs.jpg" data-source="/img/misc/blog-article-docs.jpg" data-index="0">
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-12 col-sm-6 col-md-6">
-                                                <div class="img-wrapper js-popup">
-                                                    <img class="carousel-item" src="/img/misc/blog-article-docs.jpg" data-source="/img/misc/blog-article-docs.jpg" data-index="1">
+                                                <div class="col-xs-12 col-sm-6 col-md-6">
+                                                    <div class="img-wrapper js-popup">
+                                                        <img class="carousel-item" src="/img/misc/blog-article-docs.jpg" data-source="/img/misc/blog-article-docs-source.jpg" data-index="1">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-            					</div>
-            				</div>
-            			</div>
-            		</div>
-            	</div>
+                					</div>
+                				</div>
+                			</div>
+                			<div class="recom-item">
+                				<div class="row">
+                					<div class="col-xs-12 col-sm-12 col-md-4">
+                						<div class="img-wrapper recom-letter">
+                							<img src="/img/misc/letter.jpg">
+                						</div>
+                					</div>
+                					<div class="col-xs-12 col-sm-12 col-md-8">
+                						<a href="/service_page.html" class="recom-link">
+                							<div class="recom-info">
+                								<p class="recom-date">20 декабря 2016</p>
+                								<p class="recom-divider"></p>
+                								<p class="recom-author">Кочин Александр, Генеральный директор компании «Стройплюс»</p>
+                							</div>
+                							<div class="recom-title h3">Штраф ФМС</div>
+                							<div class="recom-description">
+                								<p>ФМС назначила штраф 800 000 рублей. Даже для строительной компании – это неподъемная сумма. Планировали закрываться. Рады, что нашелся грамотный миграционный юрист, который снизил штраф в разы. Спасибо, Дело Чести!</p>
+                								<p>Работал без патента, и как итог – выдворение. В России семья, учеба. Избежать выдворения, и отделаться только штрафом помогли специалисты Миграционной Компании. Остался в РФ, закон не нарушаю.</p>
+                								<p>Запрет на въезд в РФ означал лишение дела всей моей жизни – преподавания. Риск был велик. О запрете на въезд я узнал, будучи в США. Нашел Миграционную компанию через google. Спасибо вам, ребята! Я уже в России.</p>
+                							</div>
+                						</a>
+                						<div class="img-list img-list-popup">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-6 col-md-6">
+                                                    <div class="img-wrapper js-popup">
+                                                        <img class="carousel-item" src="/img/misc/blog-article-docs.jpg" data-source="/img/misc/blog-article-docs-source.jpg" data-index="0">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-6 col-md-6">
+                                                    <div class="img-wrapper js-popup">
+                                                        <img class="carousel-item" src="/img/misc/blog-article-docs.jpg" data-source="/img/misc/blog-article-docs-source.jpg" data-index="1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                					</div>
+                				</div>
+                			</div>
+                		</div>
+                	</div>
+                </div>
             </div>
         </div>
 	    <div class="hfooter"></div>
     </div>
     <div class="popup popup-feedback-form">
     	<div class="popup-outer"></div>
-    	<div class="popup-inner">
+    	<div class="popup-inner container">
     		<a href="#" class="js-close">
     			<img src="/img/icons/close.svg" alt="">
     		</a>
     		<div class="form-wrapper">
     			<div class="form-title">
-    				Получить бесплатную консультацию юриста
+    				Получить<br>консультацию юриста
     			</div>
-    			<div class="form">
+    			<div class="form feedback">
     				<div class="input-group">
-    					<input type="text" placeholder="Имя">
-    					<input type="text" placeholder="Телефон">
-    					<input type="text" placeholder="Email">
+    					<div class="field-wrapper">
+    						<input class="field_name field_required" type="text">
+    						<div class="placeholder">Имя<span class="required">*</span></div>
+    						<div class="errorMessage"></div>
+    					</div>
+    					<div class="field-wrapper">
+    						<input class="field_email field_required" type="text">
+    						<div class="placeholder">Email<span class="required">*</span></div>
+    						<div class="errorMessage"></div>
+    					</div>
+    					<div class="field-wrapper">
+    						<input class="field_phone" type="text">
+    						<div class="placeholder">Телефон</div>
+    						<div class="errorMessage"></div>
+    					</div>
     				</div>
     				<div class="btn-wrapper">
-    					<a href="#" class="js-submit">ОТПРАВИТЬ</a>
+    					<a href="#" class="js-submit link_next">ОТПРАВИТЬ</a>
     				</div>
     			</div>
+    		</div>
+    		<div class="message hide">
     		</div>
     	</div>
     </div>
     
     <div class="popup popup-carousel">
     	<div class="popup-outer"></div>
-    	<div class="popup-inner">
+    	<div class="popup-inner container">
     		<a href="#" class="js-close">
     			<img src="/img/icons/close.svg" alt="">
     		</a>
@@ -202,23 +237,23 @@
     <footer class="footer">
     	<div class="container">
     		<div class="row links">
-    			<div class="col-xs-12 col-sm-12 col-md-2">
+    			<div class="col-xs-12 col-sm-12 col-lg-2">
     				<a href="/" class="brand btn-hover">
-    					<img src="/img/logo-footer.png" alt="">
+    					<img src="/img/icons/logo-footer.svg" alt="">
     				</a>
     			</div>
-    			<div class="col-xs-12 col-sm-12 col-md-8">
+    			<div class="col-xs-12 col-sm-12 col-lg-8">
     				<ul class="navigation">
-    			        <li>+7 (495) 812-11-88</li>
-    			        <li>hello@delo4.com</li>
-    			        <li>Москва, Лесная 3, офис 101</li>
+    			        <li><a href="skype:+74958121188?call">+7 (495) 812-11-88</a></li>
+    			        <li><a href="mailto:hello@delo4.com">hello@delo4.com</a></li>
+    			        <li><a href="/contacts.html">Москва, Лесная 3, офис 101</a></li>
     			    </ul>
     			</div>
-    			<div class="col-xs-12 col-sm-12 col-md-2">
+    			<div class="col-xs-12 col-sm-12 col-lg-2">
     				<div class="social">
-    					<a href="#" target="_blank"><img src="/img/icons/fb.svg" alt=""></a>
-    					<a href="#" target="_blank"><img src="/img/icons/twitter.svg" alt=""></a>
-    					<a href="#" target="_blank"><img src="/img/icons/vk.svg" alt=""></a>
+    					<a class="social_item" target="_blank" href="https://www.facebook.com/"><img src="/img/icons/fb.svg" alt=""></a>
+    					<a class="social_item" target="_blank" href="https://www.vk.com/"><img src="/img/icons/twitter.svg" alt=""></a>
+    					<a class="social_item" target="_blank" href="https://twitter.com/"><img src="/img/icons/vk.svg" alt=""></a>
     				</div>
     			</div>
     		</div>

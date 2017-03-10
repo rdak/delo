@@ -2,6 +2,7 @@
 // @import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 @import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 @import "bootstrap/variables-custom";
+@import "bootstrap/mixins/grid-custom";
 
 // Reset and dependencies
 @import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
@@ -42,7 +43,7 @@
 
 // Components w/ JavaScript
 @import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/modals";
-// @import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
+@import "bootstrap/tooltip-custom";
 // @import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/popovers";
 // @import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/carousel";
 
@@ -50,3 +51,28 @@
 @import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/utilities";
 @import "../../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
 // 
+
+.col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9,
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9,
+.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9{ 
+	@media (min-width: $screen-md-min) {
+	    padding-left: 35px;
+	    padding-right: 35px;
+	}
+	@media (min-width: $screen-lg-min) {
+	    padding-left: 10px;
+	    padding-right: 10px;
+	}
+}
+
+.row{
+	@media (min-width: $screen-md-min) {
+	    margin-left: -35px;
+	    margin-right: -35px;
+	}
+
+	@media (min-width: $screen-lg-min) {
+        margin-left: -10px;
+	    margin-right: -10px;
+	}
+}

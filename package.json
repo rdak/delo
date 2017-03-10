@@ -17,6 +17,7 @@
     "gulp-uglify": "*",
     "gulp-watch": "*",
     "imagemin-pngquant": "*",
+    "mq4-hover-shim": "^0.3.0",
     "rimraf": "*"
   }
 }

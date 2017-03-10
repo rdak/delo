@@ -1,3 +1,8 @@
+.hfooter{
+    height: 300px;
+    clear: both;
+}
+
 .footer {
     padding: 0;
     background: #fff;
@@ -5,14 +10,20 @@
     z-index: 0;
     text-align: center;
     overflow: hidden;
+    margin: 0 30px;
+    height: 300px;
+    margin-top: -300px;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    font-weight: bold;
 
     .container{
-        border-top: solid 2px #a2998d;
+        border-top: solid 2px #ECEBE8;
         padding: 30px 0px 45px 0;
     }
 
     .brand{
-		width: 120px;
         display: block;
         margin: 0 auto 15px;
 		img{
@@ -27,6 +38,10 @@
     	list-style: none;
         li{
             padding: 10px 0;
+            a{
+                font-weight: bold;
+                letter-spacing: 0.1px;
+            }
         }
     }
 
@@ -44,17 +59,19 @@
     }
 }
 
-@media (min-width: $screen-md){
+@media (min-width: $screen-lg){
     .footer,
     .hfooter{
         height: 110px;
     }
 
     .footer{
+        margin: 0;
         margin-top: -110px;
-        border-top: solid 2px #a2998d;
+        border-top: solid 2px #ECEBE8;
         padding: 35px 0px 45px 0;
         text-align: left;
+        font-weight: 600;
         .container{
             border: none;
             padding: 0;
@@ -78,4 +95,14 @@
             display: inline-block;
         }
     }
+}
+
+.page-index .footer,
+.page-contacts .footer,
+.page-service_list .footer{
+    .container{
+        border-top: none;
+    }
+
+    border-top: none;
 }

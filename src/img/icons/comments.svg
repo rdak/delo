@@ -1,17 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="18px" height="16px" viewBox="0 0 18 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
-    <title>Combined Shape Copy 4</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <path d="M1453,286 L1471,286 L1471,298 L1453,298 L1453,286 L1453,286 Z M1456.6,298 L1461.4,298 L1456.6,301.6 L1456.6,298 L1456.6,298 Z" id="path-1"></path>
-        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="18" height="15.6" fill="white">
-            <use xlink:href="#path-1"></use>
-        </mask>
-    </defs>
-    <g id="6.-Blog-Article" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="delo4-blog-article-2560" transform="translate(-1453.000000, -286.000000)" stroke="#AC5C00" stroke-width="4">
-            <use id="Combined-Shape-Copy-4" mask="url(#mask-2)" xlink:href="#path-1"></use>
-        </g>
-    </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <path id="a" d="M1453 286h18v12h-18v-12zm3.6 12h4.8l-4.8 3.6V298z"/>
+    <mask id="b" width="18" height="15.6" x="0" y="0" fill="#fff">
+      <use xlink:href="#a"/>
+    </mask>
+  </defs>
+  <use fill="none" fill-rule="evenodd" stroke="#AC5C00" stroke-width="4" mask="url(#b)" xlink:href="#a" transform="translate(-1453 -286)"/>
 </svg>

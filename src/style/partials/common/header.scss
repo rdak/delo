@@ -1,6 +1,6 @@
 .header{
 	height: 90px;
-	@media (min-width: 768px){
+	@media (min-width: $screen-lg){
 		height: 115px;
 	}
 

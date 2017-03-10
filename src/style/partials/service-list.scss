@@ -2,10 +2,20 @@
 	.title{
 		margin-bottom: 20px;
 	}
+
 	.article-item{
-		padding-bottom: 30px;
+		margin-bottom: 30px;
+		display: inline-block;
+		width: 100%;
+		@media (min-width: $screen-md){
+			width: 280px;
+		}
 		.article-preview{
 			margin-bottom: 15px;
+			.img-wrapper{
+				width: 280px;
+				height: 180px;
+			}
 		}
 
 		.article-date{
@@ -20,6 +30,8 @@
 			font-weight: bold;
 			line-height: 26px;
 			margin-bottom: 15px;
+			-webkit-transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+		    transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 		}
 
 		.article-lead_text{
@@ -32,16 +44,64 @@
 
 		.article-btn_wrapper{
 			text-align: left;
-			text-transform: uppercase;
+			-webkit-transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+		    transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+			.read-more{
+				font-family: ProximaCond;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				font-weight: bold;
+				font-size: 16px;
+				position: relative;
+				padding-right: 25px;
+				&:after{
+					position: absolute;
+					right: 0;
+					content: url(/img/icons/arrow-right-button.svg);
+					width: 25px;
+					display: inline-block;
+					padding-left: 15px;
+				}
+				&:hover:after{
+				    animation-name: horizontal-right;
+				    animation-duration: 0.8s;
+				    animation-iteration-count: infinite;
+				    animation-direction: alternate;
+				    animation-fill-mode: both;
+				    animation-play-state: running;
+				}
+				&:active,
+				&:focus{
+
+				}
+			}
+		}
+
+		&:hover{
+			color: #3c3c3c;
+			.article-title{
+				color: #AC5C00;
+			}
+			.article-btn_wrapper{
+				color: #AC5C00;
+				.link_next:after{
+					animation-name: horizontal-right;
+				    animation-duration: 0.8s;
+				    animation-iteration-count: infinite;
+				    animation-direction: alternate;
+				    animation-fill-mode: both;
+				    animation-play-state: running;
+				}
+			}
 		}
 	}
 
-	@media (min-width: $screen-sm){
+	@media (min-width: $screen-md){
 		.title{
 			margin-bottom: 25px;
 		}
 		.article-item{
-			padding-bottom: 40px;
+			margin-bottom: 40px;
 			.article-preview{
 				margin-bottom: 10px;
 			}

@@ -23,6 +23,16 @@ var images = [
 
 $(document).ready(function() {
     preloadPictures(loadingCounter);
+    var href = document.location.pathname;
+    var body = document.body;
+    if (href == "/"){
+        href = href + 'index';
+    }
+    else{
+        href = href.replace('.html', '');
+    }
+    href = href.replace('/', '');
+    body.classList.add("page-" + href);
 });
 
 var loadingCounter = function(){
@@ -47,6 +57,7 @@ var loadingCounter = function(){
                 setTimeout(function(){
                     $('.preloader-page').fadeOut();
                     $('#page-wrap').fadeIn();
+                    initSlider(0);
                 }, 600);
             }
         }
@@ -58,15 +69,18 @@ var preloadPictures = function(callback) {
         j;
 
     for (i = 0, j = images.length; i < j; i++) {
-        (function (img, src) {
+            // var img = new Image();
+            $('<img />').attr('src', images[i]).appendTo('body').hide();
+            var img = $('<img/>')[0];
             img.onerror,
             img.onabort,
             img.onload = function () {
                 loaded++;
                 callback();
             };
-            img.src = src;
-        } (new Image(), images[i]));
+
+            img.src = images[i];
+            $(img).html();
     }
 };
 

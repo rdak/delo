@@ -1,11 +1,15 @@
 .contact-header{
+	margin-bottom: 0;
+
 	.title{
-		margin-bottom: 36px;
+		margin-bottom: 40px;
 	}
 
-	margin-bottom: 20px;
+	@media (min-width: $screen-md){
+		.title{
+			margin-bottom: 35px;
+		}
 
-	@media (min-width: $screen-sm){
 		.site{
 			text-align: center;
 		}
@@ -15,20 +19,40 @@
 		}
 	}
 
+	@media (min-width: $screen-lg){
+		margin-bottom: 10px;
+	}
+
 	.phone,
 	.site,
 	.address{
 		font-size: 16px;
 		line-height: 20px;
-		margin-bottom: 18px;
+		margin-bottom: 20px;
 		font-weight: bold;
 		letter-spacing: 0.1px;
 	}
 }
 
+.map-wrapper{
+	margin-bottom: 15px;
+	@media (min-width: $screen-lg){
+		margin-bottom: 0;
+	}
+}
+
 #map{
 	height: 490px;
-	@media (min-width: $screen-sm){
-		height: 1200px;
+	/* @media (min-width: $screen-xs){
+		height: calc(100vh - 90px - 256px - 300px);
+	} */
+	// @media (min-width: $screen-sm){
+	// 	height: calc(100vh - 90px - 196px - 300px);
+	// }
+	@media (min-width: $screen-md){
+		height: calc(100vh - 90px - 191px - 300px);
+	}
+	@media (min-width: $screen-lg){
+		height: calc(100vh - 115px - 181px - 110px);
 	}
 }

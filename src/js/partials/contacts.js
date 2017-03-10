@@ -32,3 +32,10 @@ function init() {
         title: 'Snazzy!'
     });
 }
+
+function showRecommendation(){
+    console.log('as');
+    $('html, body').animate({
+        scrollTop: $('#recommendation-block').offset().top - $('#header').height()
+    }, 200);
+}

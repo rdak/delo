@@ -1,24 +1,59 @@
 <div class="main_slider">
 	<div class="slider_list">
 		<div class="slider_bg_list">
-			<div class="bg bg-img-1 current" style="background-color: radial-gradient(circle at 83% 44%, rgba(246, 249, 250, 0), #dbece5); background-image: url('/img/bg-images/bg-main.png')"></div>
-			<div class="bg bg-img-2" style="background-color: #e1e8ec;"></div>
-			<div class="bg bg-img-3" style="background-color: #e6e6e6;"></div>
+			<div class="bg bg-img-1 current" style="background-image:: radial-gradient(circle at 83% 44%, rgba(246, 249, 250, 0), #dbece5); background-image: url('/img/bg-images/bg-main.png')" data-index="1">
+				<div class="container">
+					<a href="#" class="js-switchSlide arrow left hide"></a>
+					<a href="#" class="js-switchSlide arrow right"></a>
+				</div>
+			</div>
+			<div class="bg bg-img-2" style="background-image:: radial-gradient(circle at 83% 44%, rgba(246, 249, 250, 0), #dbece5); background-image: url('/img/bg-images/bg-main.png')" data-index="2">
+				<div class="container">
+					<a href="#" class="js-switchSlide arrow left"></a>
+					<a href="#" class="js-switchSlide arrow right"></a>
+				</div>
+			</div>
+			<div class="bg bg-img-3" style="background-image:: radial-gradient(circle at 83% 44%, rgba(246, 249, 250, 0), #dbece5); background-image: url('/img/bg-images/bg-main.png')" data-index="3">
+				<div class="container">
+					<a href="#" class="js-switchSlide arrow left"></a>
+					<a href="#" class="js-switchSlide arrow right hide"></a>
+				</div>
+			</div>
 		</div>
-		
+
 		<div class="slider_menu">
 			<div class="container">
 				<ul>
-					<li class="slider_menu_item-wrapper current"><a class="slider_menu_item" href="#"></a></li>
-					<li class="slider_menu_item-wrapper"><a class="slider_menu_item" href="#"></a></li>
-					<li class="slider_menu_item-wrapper"><a class="slider_menu_item" href="#"></a></li>
+					<li class="slider_menu_item-wrapper current">
+						<a class="slider_menu_item js-switchSlide" href="#" data-index="1"></a>
+					</li>
+					<li class="slider_menu_item-wrapper">
+						<a class="slider_menu_item js-switchSlide" href="#" data-index="2"></a>
+					</li>
+					<li class="slider_menu_item-wrapper">
+						<a class="slider_menu_item js-switchSlide" href="#" data-index="3"></a>
+					</li>
 				</ul>
+			</div>
+		</div>
+
+		<div class="slider_index_list">
+			<div class="container">
+				<span class="index_wrapper placeholder">
+				</span>
+				<span class="index_wrapper placeholder">
+				</span>
+				<span class="index_wrapper">
+					<div class="img-wrapper">
+						<img src="/img/icons/quote.svg" alt="">
+					</div>
+				</span>
 			</div>
 		</div>
 
 		<div class="slider_title_list">
 			<div class="container">
-				<span class="title_wrapper main_slide current" style="color: #fff;">
+				<span class="title_wrapper main_slide current">
 					<div class="title">“In Law we trust”</div>
 				</span>
 				<span class="title_wrapper list_services_slide">
@@ -29,6 +64,7 @@
 				</span>
 			</div>
 		</div>
+
 		<div class="slider_sign_list">
 			<div class="container">
 				<span class="slider_sign_wrapper main_slide current">
@@ -37,20 +73,90 @@
 				<span class="slider_sign_wrapper list_services_slide">
 					<div class="slider_sign">
 						<ul>
-							<li><a href="#">Lorem ipsum.</a></li>
-							<li><a href="#">Aliquid, nobis?</a></li>
-							<li><a href="#">Iure, dolores.</a></li>
-							<li><a href="#">At, possimus.</a></li>
-							<li><a href="#">Asperiores, ipsum?</a></li>
-							<li><a href="#">Dolorum, cumque.</a></li>
-							<li><a href="#">Hic, quis.</a></li>
-							<li><a href="#">Corporis, recusandae.</a></li>
-							<li><a href="#">Cupiditate, consectetur!</a></li>
-							<li><a href="#">Doloribus, ab.</a></li>
-							<li><a href="#">Mollitia, iusto.</a></li>
-							<li><a href="#">Voluptates, doloremque!</a></li>
-							<li><a href="#">Unde, tempora.</a></li>
-							<li><a href="#">Iste, veniam.</a></li>
+							<li>
+								<a href="/service_list.html" data-index="1">
+									<span class="list-style-type">01</span>
+									<span class="list-item-content">Семейные споры</span>
+								</a>
+							</li>
+							<li>
+								<a href="/service_list.html" data-index="2">
+									<span class="list-style-type">02</span>
+									<span class="list-item-content">Недвижимость: сопровождение и регистрация</span>
+								</a>
+							</li>
+							<li>
+								<a href="/service_list.html" data-index="3">
+									<span class="list-style-type">03</span>
+									<span class="list-item-content">Споры по недвижимости</span>
+								</a>
+							</li>
+							<li>
+								<a href="/service_list.html" data-index="4">
+									<span class="list-style-type">04</span>
+									<span class="list-item-content">Наследство</span>
+								</a>
+							</li>
+							<li>
+								<a href="/service_list.html" data-index="5">
+									<span class="list-style-type">05</span>
+									<span class="list-item-content">Разработка и экспертиза документов для суда</span>
+								</a>
+							</li>
+							<li>
+								<a href="/service_list.html" data-index="6">
+									<span class="list-style-type">06</span>
+									<span class="list-item-content">Договоры: разработка и правовая экспертиза</span>
+								</a>
+							</li>
+							<li>
+								<a href="/service_list.html" data-index="7">
+									<span class="list-style-type">07</span>
+									<span class="list-item-content">Защита прав потребителей</span>
+								</a>
+							</li>
+							<li>
+								<a href="/service_list.html" data-index="8">
+									<span class="list-style-type">08</span>
+									<span class="list-item-content">Миграционные споры</span>
+								</a>
+							</li>
+							<li>
+								<a href="/service_list.html" data-index="9">
+									<span class="list-style-type">09</span>
+									<span class="list-item-content">Взыскание долга</span>
+								</a>
+							</li>
+							<li>
+								<a href="/service_list.html" data-index="10">
+									<span class="list-style-type">10</span>
+									<span class="list-item-content">Арбитраж</span>
+								</a>
+							</li>
+							<li>
+								<a href="/service_list.html" data-index="11">
+									<span class="list-style-type">11</span>
+									<span class="list-item-content">Услуги иностранным гражданам</span>
+								</a>
+							</li>
+							<li>
+								<a href="/service_list.html" data-index="12">
+									<span class="list-style-type">12</span>
+									<span class="list-item-content">Трудовое право</span>
+								</a>
+							</li>
+							<li>
+								<a href="/service_list.html" data-index="13">
+									<span class="list-style-type">13</span>
+									<span class="list-item-content">Абонентское обслуживание</span>
+								</a>
+							</li>
+							<li>
+								<a href="/service_list.html" data-index="14">
+									<span class="list-style-type">14</span>
+									<span class="list-item-content">Консультации юриста</span>
+								</a>
+							</li>
 						</ul>
 					</div>
 				</span>
@@ -71,18 +177,27 @@
 				</span>
 			</div>
 		</div>
+
 		<div class="slider_link_list">
 			<div class="container">
 				<span class="slider_link_wrapper main_slide current">
-					<a class="slider_link js-popupForm" href="#">ПОЛУЧИТЬ БЕСПЛАТНУЮ КОНСУЛЬТАЦИЮ ЮРИСТА</a>
+					<a class="slider_link js-popupForm link_next" href="#">Получить консультацию юриста</a>
 				</span>
 				<span class="slider_link_wrapper list_services_slide placeholder">
 					placeholder
 				</span>
 				<span class="slider_link_wrapper recomendation_slide">
-					<a class="slider_link" href="#">Ещё рекомендации</a>
+					<a class="slider_link link_next" href="/about.html" data-mainslider=true>Ещё рекомендации</a>
 				</span>
 			</div>
-		</div>		
+		</div>
+
+		<div class="slider_icon">
+			<div class="container">
+				<div class="img-wrapper">
+					<img src="/img/icons/mouse-light.svg" alt="">
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
