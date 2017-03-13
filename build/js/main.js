@@ -13379,16 +13379,6 @@ var images = [
 
 $(document).ready(function() {
     preloadPictures(loadingCounter);
-    var href = document.location.pathname;
-    var body = document.body;
-    if (href == "/"){
-        href = href + 'index';
-    }
-    else{
-        href = href.replace('.html', '');
-    }
-    href = href.replace('/', '');
-    body.classList.add("page-" + href);
 });
 
 var loadingCounter = function(){
@@ -13413,8 +13403,57 @@ var loadingCounter = function(){
                 setTimeout(function(){
                     $('.preloader-page').fadeOut();
                     $('#page-wrap').fadeIn();
-                    initSlider(0);
+                    var href = document.location.pathname;
+                    var body = document.body;
+                    if (href == "/"){
+                        href = href + 'index';
+                    }
+                    else{
+                        href = href.replace('.html', '');
+                    }
+                    href = href.replace('/', '');
+
+                    switch(href){
+                        case 'index':
+                            var bg_image_style = colourList_main[0];
+                            break;
+                        case 'service_list':
+                            var bg_image_style = colourList_service[0];
+                            break;
+                        default:
+                            var bg_image_style = '#fff';
+                            break;
+                    }
+
+                    var state = {'page_id': href, indexSlider : 0, bg_image_style : bg_image_style, mainslider : null};
+                    var title = href;
+                    var url = href + '.html';
+
+                    history.pushState(state, title, url);
+                    body.classList.add("page-" + href);
+
+                    switch(state.page_id) {
+                        case 'index':
+                            initSlider(0);
+                            break;
+                        case 'service_list':
+                            initSlider(0);
+                            break;
+                        case 'blog':
+                        case 'success':
+                        case 'service_page':
+                            articleListPageInit();
+                            break;
+                        case 'about' :
+                            break;
+                        case 'article' :
+                            
+                        case 'contacts' :
+                            checkContacts();
+                            break;
+                    }
                 }, 600);
+
             }
         }
     , 20);
@@ -13425,7 +13464,6 @@ var preloadPictures = function(callback) {
         j;
 
     for (i = 0, j = images.length; i < j; i++) {
-            // var img = new Image();
             $('<img />').attr('src', images[i]).appendTo('body').hide();
             var img = $('<img/>')[0];
             img.onerror,
@@ -13474,6 +13512,7 @@ $(document).on('click', 'a', function(e){
 	// var location = window.location.pathname;
 	var mainSliderList = $('.main_slider .slider_list');
 	var outerApp = false;
+
 	if (href.indexOf('skype') !== -1 || href.indexOf('mailto') !== -1){
 		outerApp = true;
 	}
@@ -13482,6 +13521,7 @@ $(document).on('click', 'a', function(e){
 	}
 	else if (href && href!="#" && !outerApp){
 		e.preventDefault();
+
 		if (href == "/"){
 			href = href + 'index';
 		}
@@ -13497,6 +13537,13 @@ $(document).on('click', 'a', function(e){
 			var indexSlider = 0;
 		}
 
+		if ($this.data('mainslider')){
+			var mainslider = $this.data('mainslider')
+		}
+		else{
+    		var mainslider = null;
+		}
+
 		switch(href){
 			case 'index':
 				var bg_image_style = colourList_main[indexSlider];
@@ -13505,106 +13552,140 @@ $(document).on('click', 'a', function(e){
 				var bg_image_style = colourList_service[indexSlider];
 				break;
 			case 'about' : 
-				var mainslider = $this.data('mainslider');
-				console.log(mainslider);
+				
 			default:
 				var bg_image_style = '#fff';
 				break;
 		}
 
-		$('#bs-navbar').collapse('hide');
+		var state = {'page_id': href, indexSlider : indexSlider, bg_image_style : bg_image_style, mainslider : mainslider};
+		var title = href;
+		var url = href + '.html';
+
+		history.pushState(state, title, url);
 
 		$.get({
-	        url : '/templates/' + href + '-content.html',
+	        url : '/templates/' + state.page_id + '-content.html',
 	        success: function(data){
-	        	$('.line_loader').removeClass('hide').css('display', 'block');
-	        	$('.line_loader').css({
-	        		'width' : 0,
-	        		'background' : bg_image_style
-	        	});
-
-	        	$('.line_loader').animate({
-	        		'width': '100%',
-	        	}, 600, function(){
-		        	$(window).scrollTop(0);
-		        	$('#page-content').removeClass('error-page');
-
-		            $('#page-content .content').html(data);
-		            $('.line_loader').fadeOut(500, function(){
-			            $('.line_loader').addClass('hide');
-		            });
-
-		            var sliderList = $('.slider_list');
-		            if (sliderList.length){
-				        // $('body').addClass('slider_page');
-				    }
-				    else{
-		            	$('body').removeClass('slider_page');
-				    }
-
-				    var body = document.body;
-				    for (var i=0, l=body.classList.length; i<l; ++i) {
-					    if(/page-/.test(body.classList[i])) {
-					    	body.classList.remove(body.classList[i]);
-					    }
-					}
-
-					body.classList.add("page-" + href);
-				    
-		            switch(href) {
-		            	case 'index':
-		            		initSlider(indexSlider);
-		            		break;
-		            	case 'service_list':
-		            		initSlider(indexSlider);
-		            		break;
-		            	case 'blog':
-		            	case 'success':
-		            	case 'service_page':
-			            	articleListPageInit();
-		            		break;
-		            	case 'about' :
-		            		if (mainslider){
-		            			showRecommendation();
-		            		}
-		            		break;
-		            	case 'article' :
-		            		
-		            	case 'contacts' :
-		            		init();
-		            		break;
-		            }
-	        	});
+	        	success(state, data);
 	        },
-	        error: function(){
-	        	$.get({
-		        	url : '/templates/404-content.html',
-			        success : function(data){
-			        	$('.line_loader').removeClass('hide').css('display', 'block');
-			        	$('.line_loader').css({
-			        		'width' : 0,
-			        		'background' : '#fff'
-			        	});
-
-			        	$('.line_loader').addClass('error').animate({
-			        		'width' : '100%',
-			        	}, 600, function(){
-				        	$(window).scrollTop(0);
-			        		$('#page-content').addClass('error-page');
-				            $('#page-content .content').html(data);
-
-				            $('.line_loader').fadeOut(500, function(){
-					            $('.line_loader').addClass('hide');
-				            });
-
-				        	$('.line_loader').removeClass('error');
-			        	});
-			        }
-			    });
-	        }
+	        error: error
 	    });
 	}
 });
+
+window.onpopstate = function(e){
+    if(e.state){
+    	$.get({
+	        url : '/templates/' + e.state.page_id + '-content.html',
+	        success: function(data){
+	        	success(e.state, data);
+	        },
+	        error: error
+	    });
+    }
+};
+
+function success(state, data){
+	var href = state.page_id,
+		indexSlider = state.indexSlider,
+		bg_image_style = state.bg_image_style,
+		mainslider = state.mainslider;
+
+	$('#bs-navbar').collapse('hide');
+	
+	$('.line_loader').removeClass('hide').css('display', 'block');
+	$('.line_loader').css({
+		'width' : 0,
+		'background' : bg_image_style
+	});
+
+	$('.line_loader').animate({
+		'width': '100%',
+	}, 600, function(){
+    	$(window).scrollTop(0);
+    	$('#page-content').removeClass('error-page');
+
+        $('#page-content .content').html(data);
+        $('.line_loader').fadeOut(500, function(){
+            $('.line_loader').addClass('hide');
+        });
+
+        var sliderList = $('.slider_list');
+        if (!sliderList.length){
+        	$('body').removeClass('slider_page');
+	    }
+
+	    var body = document.body;
+	    for (var i=0, l=body.classList.length; i<l; ++i) {
+		    if(/page-/.test(body.classList[i])) {
+		    	body.classList.remove(body.classList[i]);
+		    }
+		}
+
+		body.classList.add("page-" + href);
+
+		switch(state.page_id) {
+        	case 'index':
+        		initSlider(indexSlider);
+        		break;
+        	case 'service_list':
+        		initSlider(indexSlider);
+        		break;
+        	case 'blog':
+        	case 'success':
+        	case 'service_page':
+            	articleListPageInit();
+        		break;
+        	case 'about' :
+        		if (mainslider){
+        			showRecommendation();
+        		}
+        		break;
+        	case 'article' :
+        		
+        	case 'contacts' :
+        		checkContacts();
+        		break;
+        }
+	});
+}
+
+function error(state, data){
+	var href = state.page_id,
+		indexSlider = state.indexSlider,
+		bg_image_style = bg_image_style.bg_image_style;
+
+	$.get({
+    	url : '/templates/404-content.html',
+        success : function(data){
+        	var state = { 'page_id': href };
+			var title = href;
+			var url = href + '.html';
+			history.pushState(state, title, url);
+
+        	$('.line_loader').removeClass('hide').css('display', 'block');
+        	$('.line_loader').css({
+        		'width' : 0,
+        		'background' : '#fff'
+        	});
+
+        	$('.line_loader').addClass('error').animate({
+        		'width' : '100%',
+        	}, 600, function(){
+	        	$(window).scrollTop(0);
+        		$('#page-content').addClass('error-page');
+	            $('#page-content .content').html(data);
+
+	            $('.line_loader').fadeOut(500, function(){
+		            $('.line_loader').addClass('hide');
+	            });
+
+	        	$('.line_loader').removeClass('error');
+        	});
+        }
+    });
+}
 $(document).on('blur', '.feedback input', function(e){
     var $this = $(e.currentTarget);
     if ($this.val() == ''){
@@ -13819,21 +13900,11 @@ $(document).on('click', '.js-switchSlide', function(e){
             e.preventDefault();
             initSlider(index-1);
         }
-        else {
-            // e.preventDefault();
-        }
     }
 });
 
 function initSlider(currentIndex){
     var sliderList = $('.slider_list');
-    /*if (sliderList.length && $(window).width()>768){
-        $('body').addClass('slider_page');
-    }
-    else{
-        $('body').removeClass('slider_page');
-    }*/
-
     switchSlider(sliderList, currentIndex);
 
     var length = sliderList.find('.slider_bg_list .bg').length;
@@ -13844,9 +13915,11 @@ function initSlider(currentIndex){
             var direction,
                 deltaX = event.deltaX,
                 deltaY = event.deltaY;
-            if (Math.abs(deltaX) > Math.abs(deltaY)){
+            if (!sliding && Math.abs(deltaX) > Math.abs(deltaY)){
+                sliding = true;
                 currentIndex = getIndex(currentIndex, direction, deltaX, deltaY, length, 'swipe');
                 switchSlider(sliderList, currentIndex);
+                setTimeout(function(){ sliding = false; }, 1200);
             }
         });
 
@@ -13983,7 +14056,34 @@ var switchSlider = function(el, index){
 };
 
 // When the window has finished loading create our google map below
-google.maps.event.addDomListener(window, 'load', init);
+// google.maps.event.addDomListener(window, 'load', init);
+// 
+
+var file = [];
+var loaded = [];
+var head = document.getElementsByTagName('head')[0];
+
+var fileOnLoad =
+// Pass the arrays to your function
+(function(file, loaded){ return function(){
+  loaded.push(true);  
+  if(file.length == loaded.length){
+    init();
+  }
+}})(file, loaded);
+
+function checkContacts(){
+    if(window.google){
+        init();
+    }
+    else{
+        file[0] = document.createElement('script');
+        file[0].src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDMbbTmpDYiqc1YaCqq0lHmKI8ARq3nCOM";
+        file[0].onload = fileOnLoad;
+        head.appendChild(file[0]);
+    }
+}
+
 
 function init() {
     // Basic options for a simple Google Map

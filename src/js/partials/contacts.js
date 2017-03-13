@@ -1,5 +1,32 @@
 // When the window has finished loading create our google map below
-google.maps.event.addDomListener(window, 'load', init);
+// google.maps.event.addDomListener(window, 'load', init);
+// 
+
+var file = [];
+var loaded = [];
+var head = document.getElementsByTagName('head')[0];
+
+var fileOnLoad =
+// Pass the arrays to your function
+(function(file, loaded){ return function(){
+  loaded.push(true);  
+  if(file.length == loaded.length){
+    init();
+  }
+}})(file, loaded);
+
+function checkContacts(){
+    if(window.google){
+        init();
+    }
+    else{
+        file[0] = document.createElement('script');
+        file[0].src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDMbbTmpDYiqc1YaCqq0lHmKI8ARq3nCOM";
+        file[0].onload = fileOnLoad;
+        head.appendChild(file[0]);
+    }
+}
+
 
 function init() {
     // Basic options for a simple Google Map

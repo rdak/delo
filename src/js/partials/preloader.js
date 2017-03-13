@@ -23,16 +23,6 @@ var images = [
 
 $(document).ready(function() {
     preloadPictures(loadingCounter);
-    var href = document.location.pathname;
-    var body = document.body;
-    if (href == "/"){
-        href = href + 'index';
-    }
-    else{
-        href = href.replace('.html', '');
-    }
-    href = href.replace('/', '');
-    body.classList.add("page-" + href);
 });
 
 var loadingCounter = function(){
@@ -57,8 +47,57 @@ var loadingCounter = function(){
                 setTimeout(function(){
                     $('.preloader-page').fadeOut();
                     $('#page-wrap').fadeIn();
-                    initSlider(0);
+                    var href = document.location.pathname;
+                    var body = document.body;
+                    if (href == "/"){
+                        href = href + 'index';
+                    }
+                    else{
+                        href = href.replace('.html', '');
+                    }
+                    href = href.replace('/', '');
+
+                    switch(href){
+                        case 'index':
+                            var bg_image_style = colourList_main[0];
+                            break;
+                        case 'service_list':
+                            var bg_image_style = colourList_service[0];
+                            break;
+                        default:
+                            var bg_image_style = '#fff';
+                            break;
+                    }
+
+                    var state = {'page_id': href, indexSlider : 0, bg_image_style : bg_image_style, mainslider : null};
+                    var title = href;
+                    var url = href + '.html';
+
+                    history.pushState(state, title, url);
+                    body.classList.add("page-" + href);
+
+                    switch(state.page_id) {
+                        case 'index':
+                            initSlider(0);
+                            break;
+                        case 'service_list':
+                            initSlider(0);
+                            break;
+                        case 'blog':
+                        case 'success':
+                        case 'service_page':
+                            articleListPageInit();
+                            break;
+                        case 'about' :
+                            break;
+                        case 'article' :
+                            
+                        case 'contacts' :
+                            checkContacts();
+                            break;
+                    }
                 }, 600);
+
             }
         }
     , 20);
@@ -69,7 +108,6 @@ var preloadPictures = function(callback) {
         j;
 
     for (i = 0, j = images.length; i < j; i++) {
-            // var img = new Image();
             $('<img />').attr('src', images[i]).appendTo('body').hide();
             var img = $('<img/>')[0];
             img.onerror,

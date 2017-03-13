@@ -38,21 +38,11 @@ $(document).on('click', '.js-switchSlide', function(e){
             e.preventDefault();
             initSlider(index-1);
         }
-        else {
-            // e.preventDefault();
-        }
     }
 });
 
 function initSlider(currentIndex){
     var sliderList = $('.slider_list');
-    /*if (sliderList.length && $(window).width()>768){
-        $('body').addClass('slider_page');
-    }
-    else{
-        $('body').removeClass('slider_page');
-    }*/
-
     switchSlider(sliderList, currentIndex);
 
     var length = sliderList.find('.slider_bg_list .bg').length;
@@ -63,9 +53,11 @@ function initSlider(currentIndex){
             var direction,
                 deltaX = event.deltaX,
                 deltaY = event.deltaY;
-            if (Math.abs(deltaX) > Math.abs(deltaY)){
+            if (!sliding && Math.abs(deltaX) > Math.abs(deltaY)){
+                sliding = true;
                 currentIndex = getIndex(currentIndex, direction, deltaX, deltaY, length, 'swipe');
                 switchSlider(sliderList, currentIndex);
+                setTimeout(function(){ sliding = false; }, 1200);
             }
         });
 
