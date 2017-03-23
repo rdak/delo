@@ -1,43 +1,16 @@
-var colourList_service = [
-	'#dbece5',
-	'#d0e7f2',
-	'#d5dadf',
-	'#dcd8e4',
-	'#d0eced',
-
-	'#e9dce3',
-	'#f4e8d2',
-	'#d7e4f1',
-	'#f1e1d7',
-	'#f1e1d7',
-
-	'#f0ecd3',
-	'#f0d9d9',
-	'#f1e1d7',
-	'#f1e1d7',
-];
-
-var colourList_main = [
-	'#dbece5',
-    '#e1e8ec',
-    '#e6e6e6'
-];
-
-// need modify this constuction and use smth else
-// that related with server-side
-
 $(document).on('click', 'a', function(e){
 	var $this = $(e.currentTarget);
 	var href = $this.attr('href');
 	var pathname = $this.data('pathname');
-	// var location = window.location.pathname;
+	
 	var mainSliderList = $('.main_slider .slider_list');
 	var outerApp = false;
 
 	if (href.indexOf('skype') !== -1 || href.indexOf('mailto') !== -1){
 		outerApp = true;
 	}
-	if (!outerApp && mainSliderList.length > 0 && pathname == '/'){
+
+	if (!outerApp && mainSliderList.length > 0 && pathname){
 
 	}
 	else if (href && href!="#" && !outerApp){
@@ -59,7 +32,7 @@ $(document).on('click', 'a', function(e){
 		}
 
 		if ($this.data('mainslider')){
-			var mainslider = $this.data('mainslider')
+			var mainslider = $this.data('mainslider');
 		}
 		else{
     		var mainslider = null;
@@ -67,10 +40,10 @@ $(document).on('click', 'a', function(e){
 
 		switch(href){
 			case 'index':
-				var bg_image_style = colourList_main[indexSlider];
+				var bg_image_style = mainSlideInfo[indexSlider].bg_color;
 				break;
-			case 'service_list':
-				var bg_image_style = colourList_service[indexSlider];
+			case 'servicelist':
+				var bg_image_style = serviceSlideInfo[indexSlider].bg_color;
 				break;
 			case 'about' : 
 				
@@ -81,7 +54,7 @@ $(document).on('click', 'a', function(e){
 
 		var state = {'page_id': href, indexSlider : indexSlider, bg_image_style : bg_image_style, mainslider : mainslider};
 		var title = href;
-		var url = href + '.html';
+		var url = '/' + href;
 
 		history.pushState(state, title, url);
 
@@ -128,6 +101,7 @@ function success(state, data){
     	$('#page-content').removeClass('error-page');
 
         $('#page-content .content').html(data);
+
         $('.line_loader').fadeOut(500, function(){
             $('.line_loader').addClass('hide');
         });
@@ -144,13 +118,14 @@ function success(state, data){
 		    }
 		}
 
+		href = href.replace('/', '');
 		body.classList.add("page-" + href);
-
-		switch(state.page_id) {
+		
+		switch(href) {
         	case 'index':
         		initSlider(indexSlider);
         		break;
-        	case 'service_list':
+        	case 'servicelist':
         		initSlider(indexSlider);
         		break;
         	case 'blog':
@@ -175,14 +150,14 @@ function success(state, data){
 function error(state, data){
 	var href = state.page_id,
 		indexSlider = state.indexSlider,
-		bg_image_style = bg_image_style.bg_image_style;
+		bg_image_style = state.bg_image_style;
 
 	$.get({
     	url : '/templates/404-content.html',
         success : function(data){
         	var state = { 'page_id': href };
 			var title = href;
-			var url = href + '.html';
+			var url = '/' + href;
 			history.pushState(state, title, url);
 
         	$('.line_loader').removeClass('hide').css('display', 'block');

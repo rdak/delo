@@ -13411,32 +13411,35 @@ var loadingCounter = function(){
                     else{
                         href = href.replace('.html', '');
                     }
-                    href = href.replace('/', '');
 
+                    href = href.replace('/', '');
+                    var url = '/' + href;
+                    
                     switch(href){
                         case 'index':
-                            var bg_image_style = colourList_main[0];
+                            var bg_image_style = mainSlideInfo[0].bg_color;
                             break;
-                        case 'service_list':
-                            var bg_image_style = colourList_service[0];
+                        case 'servicelist':
+                            var bg_image_style = serviceSlideInfo[0].bg_color;
+                            var url = url + '/family';
                             break;
                         default:
                             var bg_image_style = '#fff';
                             break;
                     }
 
-                    var state = {'page_id': href, indexSlider : 0, bg_image_style : bg_image_style, mainslider : null};
+                    var state = {'page_id': href, indexSlider : 0, bg_image_style : bg_image_style};
                     var title = href;
-                    var url = href + '.html';
 
                     history.pushState(state, title, url);
+
                     body.classList.add("page-" + href);
 
-                    switch(state.page_id) {
+                    switch(href) {
                         case 'index':
                             initSlider(0);
                             break;
-                        case 'service_list':
+                        case 'servicelist':
                             initSlider(0);
                             break;
                         case 'blog':
@@ -13477,46 +13480,19 @@ var preloadPictures = function(callback) {
             $(img).html();
     }
 };
-var colourList_service = [
-	'#dbece5',
-	'#d0e7f2',
-	'#d5dadf',
-	'#dcd8e4',
-	'#d0eced',
-
-	'#e9dce3',
-	'#f4e8d2',
-	'#d7e4f1',
-	'#f1e1d7',
-	'#f1e1d7',
-
-	'#f0ecd3',
-	'#f0d9d9',
-	'#f1e1d7',
-	'#f1e1d7',
-];
-
-var colourList_main = [
-	'#dbece5',
-    '#e1e8ec',
-    '#e6e6e6'
-];
-
-// need modify this constuction and use smth else
-// that related with server-side
-
 $(document).on('click', 'a', function(e){
 	var $this = $(e.currentTarget);
 	var href = $this.attr('href');
 	var pathname = $this.data('pathname');
-	// var location = window.location.pathname;
+	
 	var mainSliderList = $('.main_slider .slider_list');
 	var outerApp = false;
 
 	if (href.indexOf('skype') !== -1 || href.indexOf('mailto') !== -1){
 		outerApp = true;
 	}
-	if (!outerApp && mainSliderList.length > 0 && pathname == '/'){
+
+	if (!outerApp && mainSliderList.length > 0 && pathname){
 
 	}
 	else if (href && href!="#" && !outerApp){
@@ -13538,7 +13514,7 @@ $(document).on('click', 'a', function(e){
 		}
 
 		if ($this.data('mainslider')){
-			var mainslider = $this.data('mainslider')
+			var mainslider = $this.data('mainslider');
 		}
 		else{
     		var mainslider = null;
@@ -13546,10 +13522,10 @@ $(document).on('click', 'a', function(e){
 
 		switch(href){
 			case 'index':
-				var bg_image_style = colourList_main[indexSlider];
+				var bg_image_style = mainSlideInfo[indexSlider].bg_color;
 				break;
-			case 'service_list':
-				var bg_image_style = colourList_service[indexSlider];
+			case 'servicelist':
+				var bg_image_style = serviceSlideInfo[indexSlider].bg_color;
 				break;
 			case 'about' : 
 				
@@ -13560,7 +13536,7 @@ $(document).on('click', 'a', function(e){
 
 		var state = {'page_id': href, indexSlider : indexSlider, bg_image_style : bg_image_style, mainslider : mainslider};
 		var title = href;
-		var url = href + '.html';
+		var url = '/' + href;
 
 		history.pushState(state, title, url);
 
@@ -13607,6 +13583,7 @@ function success(state, data){
     	$('#page-content').removeClass('error-page');
 
         $('#page-content .content').html(data);
+
         $('.line_loader').fadeOut(500, function(){
             $('.line_loader').addClass('hide');
         });
@@ -13623,13 +13600,14 @@ function success(state, data){
 		    }
 		}
 
+		href = href.replace('/', '');
 		body.classList.add("page-" + href);
-
-		switch(state.page_id) {
+		
+		switch(href) {
         	case 'index':
         		initSlider(indexSlider);
         		break;
-        	case 'service_list':
+        	case 'servicelist':
         		initSlider(indexSlider);
         		break;
         	case 'blog':
@@ -13654,14 +13632,14 @@ function success(state, data){
 function error(state, data){
 	var href = state.page_id,
 		indexSlider = state.indexSlider,
-		bg_image_style = bg_image_style.bg_image_style;
+		bg_image_style = state.bg_image_style;
 
 	$.get({
     	url : '/templates/404-content.html',
         success : function(data){
         	var state = { 'page_id': href };
 			var title = href;
-			var url = href + '.html';
+			var url = '/' + href;
 			history.pushState(state, title, url);
 
         	$('.line_loader').removeClass('hide').css('display', 'block');
@@ -13860,11 +13838,115 @@ function checkArticles(e){
 		}
 	}
 }
+var mainSlideInfo = [
+    {
+        url : '/index',
+        href : '/index',
+        bg_color : '#dbece5'
+    },
+
+    {
+        url : '/services',
+        href : '/index',
+        bg_color : '#e1e8ec'
+    },
+
+    {
+        url : '/reference',
+        href : '/index',
+        bg_color : '#e6e6e6'
+    }
+];
+
+var serviceSlideInfo = [
+    {
+        url : '/servicelist/family',
+        href : '/servicelist',
+        bg_color : '#dbece5',
+    },
+
+    {
+        url : '/servicelist/realty-registration',
+        href : '/servicelist',
+        bg_color : '#d0e7f2',
+    },
+
+    {
+        url : '/servicelist/realty-disputes',
+        href : '/servicelist',
+        bg_color : '#d5dadf',
+    },
+
+    {
+        url : '/servicelist/inheritance',
+        href : '/servicelist',
+        bg_color : '#dcd8e4',
+    },
+
+    {
+        url : '/servicelist/documents',
+        href : '/servicelist',
+        bg_color : '#d0eced',
+    },
+
+    {
+        url : '/servicelist/contracts',
+        href : '/servicelist',
+        bg_color : '#e9dce3',
+    },
+
+    {
+        url : '/servicelist/consumer-protection',
+        href : '/servicelist',
+        bg_color : '#f4e8d2',
+    },
+
+    {
+        url : '/servicelist/migration-disputes',
+        href : '/servicelist',
+        bg_color : '#d7e4f1',
+    },
+
+    {
+        url : '/servicelist/debt-collection',
+        href : '/servicelist',
+        bg_color : '#f1e1d7',
+    },
+
+    {
+        url : '/servicelist/arbitration',
+        href : '/servicelist',
+        bg_color : '#f1e1d7',
+    },
+
+    {
+        url : '/servicelist/foreigners',
+        href : '/servicelist',
+        bg_color : '#f0ecd3',
+    },
+
+    {
+        url : '/servicelist/labour-law',
+        href : '/servicelist',
+        bg_color : '#f0d9d9',
+    },
+
+    {
+        url : '/servicelist/customer-service',
+        href : '/servicelist',
+        bg_color : '#f1e1d7',
+    },
+
+    {
+        url : '/servicelist/legal-advice',
+        href : '/servicelist',
+        bg_color : '#f1e1d7',
+    }
+];
+
 $(document).on('click', '.js-switchSlide', function(e){
-    // need server/navigation in url for 
-    // checking window.location.pathname == pathname;
-     
     var $this = $(e.currentTarget);
+
     if ($this.closest('.slider_bg_list').length){
         var length = $this.closest('.slider_bg_list').find('.bg').length;
         var $thisIndex = Number($this.closest('.bg').data('index'));
@@ -14053,6 +14135,27 @@ var switchSlider = function(el, index){
     el.find('.slider_title_list').height(stl_height);
     el.find('.slider_sign_list').height(ssl_height);
     el.find('.slider_link_list').height(el.find('.slider_link_list .slider_link_wrapper.current').height());
+
+    if (el.data('slider') == 'servicelistslider'){
+        var sliderInfo = serviceSlideInfo;
+        var mainslider = null;
+    }
+    else if (el.data('slider') == 'mainslider'){
+        var sliderInfo = mainSlideInfo;
+        var mainslider = true;
+    }
+
+    var state = {
+        page_id : sliderInfo[index].href,
+        indexSlider : index,
+        bg_image_style : sliderInfo[index].bg_color,
+        mainslider : mainslider
+    };
+
+    var title = sliderInfo[index].href;
+    var url = sliderInfo[index].url;
+
+    history.pushState(state, title, url);
 };
 
 // When the window has finished loading create our google map below
@@ -14086,17 +14189,9 @@ function checkContacts(){
 
 
 function init() {
-    // Basic options for a simple Google Map
-    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
     var mapOptions = {
-        // How zoomed in you want the map to start at (always required)
         zoom: 17,
-
-        // The latitude and longitude to center the map (always required)
-        center: new google.maps.LatLng(55.7770599,37.5853224), // New York
-
-        // How you would like to style the map. 
-        // This is where you would paste any style found on Snazzy Maps.
+        center: new google.maps.LatLng(55.7770599,37.5853224),
         styles: [{"featureType":"all","elementType":"all","stylers":[{"hue":"#ff6800"},{"saturation":"20"},{"lightness":"-8"},{"gamma":"1.00"},{"weight":"1.12"}]}]
     };
 

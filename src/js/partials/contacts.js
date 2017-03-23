@@ -29,17 +29,9 @@ function checkContacts(){
 
 
 function init() {
-    // Basic options for a simple Google Map
-    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
     var mapOptions = {
-        // How zoomed in you want the map to start at (always required)
         zoom: 17,
-
-        // The latitude and longitude to center the map (always required)
-        center: new google.maps.LatLng(55.7770599,37.5853224), // New York
-
-        // How you would like to style the map. 
-        // This is where you would paste any style found on Snazzy Maps.
+        center: new google.maps.LatLng(55.7770599,37.5853224),
         styles: [{"featureType":"all","elementType":"all","stylers":[{"hue":"#ff6800"},{"saturation":"20"},{"lightness":"-8"},{"gamma":"1.00"},{"weight":"1.12"}]}]
     };
 

@@ -55,32 +55,35 @@ var loadingCounter = function(){
                     else{
                         href = href.replace('.html', '');
                     }
-                    href = href.replace('/', '');
 
+                    href = href.replace('/', '');
+                    var url = '/' + href;
+                    
                     switch(href){
                         case 'index':
-                            var bg_image_style = colourList_main[0];
+                            var bg_image_style = mainSlideInfo[0].bg_color;
                             break;
-                        case 'service_list':
-                            var bg_image_style = colourList_service[0];
+                        case 'servicelist':
+                            var bg_image_style = serviceSlideInfo[0].bg_color;
+                            var url = url + '/family';
                             break;
                         default:
                             var bg_image_style = '#fff';
                             break;
                     }
 
-                    var state = {'page_id': href, indexSlider : 0, bg_image_style : bg_image_style, mainslider : null};
+                    var state = {'page_id': href, indexSlider : 0, bg_image_style : bg_image_style};
                     var title = href;
-                    var url = href + '.html';
 
                     history.pushState(state, title, url);
+
                     body.classList.add("page-" + href);
 
-                    switch(state.page_id) {
+                    switch(href) {
                         case 'index':
                             initSlider(0);
                             break;
-                        case 'service_list':
+                        case 'servicelist':
                             initSlider(0);
                             break;
                         case 'blog':
