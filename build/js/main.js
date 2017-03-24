@@ -13520,28 +13520,36 @@ $(document).on('click', 'a', function(e){
     		var mainslider = null;
 		}
 
+		var url = '/' + href;
+
 		switch(href){
 			case 'index':
 				var bg_image_style = mainSlideInfo[indexSlider].bg_color;
+				url = mainSlideInfo[indexSlider].url;
 				break;
 			case 'servicelist':
 				var bg_image_style = serviceSlideInfo[indexSlider].bg_color;
+				url = serviceSlideInfo[indexSlider].url;
 				break;
-			case 'about' : 
-				
 			default:
 				var bg_image_style = '#fff';
 				break;
 		}
 
-		var state = {'page_id': href, indexSlider : indexSlider, bg_image_style : bg_image_style, mainslider : mainslider};
-		var title = href;
-		var url = '/' + href;
+		var state = {
+			page_id : href,
+			indexSlider : indexSlider,
+			bg_image_style : bg_image_style,
+			mainslider : mainslider
+		};
 
-		history.pushState(state, title, url);
+		var title = href;
+		if (href != 'servicelist' && href !='index'){
+			history.pushState(state, title, url);
+		}
 
 		$.get({
-	        url : '/templates/' + state.page_id + '-content.html',
+	        url : '/templates/' + href + '-content.html',
 	        success: function(data){
 	        	success(state, data);
 	        },
@@ -13550,15 +13558,51 @@ $(document).on('click', 'a', function(e){
 	}
 });
 
+var lastUrl = window.location.pathname;
+
 window.onpopstate = function(e){
     if(e.state){
-    	$.get({
-	        url : '/templates/' + e.state.page_id + '-content.html',
-	        success: function(data){
-	        	success(e.state, data);
-	        },
-	        error: error
-	    });
+		var href = e.state.page_id,
+    		indexSlider = e.state.indexSlider;
+
+    	href = href.replace('/', '');
+
+    	if (href == lastUrl){
+    		switch(href) {
+	        	case 'index':
+		        	var sliderList = $('.slider_list');
+	        		switchSlider(sliderList, indexSlider);
+	        		break;
+	        	case 'servicelist':
+		        	var sliderList = $('.slider_list');
+	        		switchSlider(sliderList, indexSlider);
+	        		break;
+	        	case 'blog':
+	        	case 'success':
+	        	case 'service_page':
+	            	articleListPageInit();
+	        		break;
+	        	case 'about' :
+	        		if (mainslider){
+	        			showRecommendation();
+	        		}
+	        		break;
+	        	case 'article' :
+	        		
+	        	case 'contacts' :
+	        		checkContacts();
+	        		break;
+	        }
+    	}
+    	else{
+	    	$.get({
+		        url : '/templates/' + e.state.page_id + '-content.html',
+		        success: function(data){
+		        	success(e.state, data);
+		        },
+		        error: error
+		    });
+	    }
     }
 };
 
@@ -13567,6 +13611,8 @@ function success(state, data){
 		indexSlider = state.indexSlider,
 		bg_image_style = state.bg_image_style,
 		mainslider = state.mainslider;
+
+	lastUrl = href;
 
 	$('#bs-navbar').collapse('hide');
 	
@@ -13602,7 +13648,7 @@ function success(state, data){
 
 		href = href.replace('/', '');
 		body.classList.add("page-" + href);
-		
+
 		switch(href) {
         	case 'index':
         		initSlider(indexSlider);
