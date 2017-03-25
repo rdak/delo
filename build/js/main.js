@@ -13488,7 +13488,7 @@ $(document).on('click', 'a', function(e){
 	var mainSliderList = $('.main_slider .slider_list');
 	var outerApp = false;
 
-	if (href.indexOf('skype') !== -1 || href.indexOf('mailto') !== -1){
+	if (href.indexOf('skype') !== -1 || href.indexOf('mailto') !== -1 || this.hostname != location.hostname){
 		outerApp = true;
 	}
 
@@ -13566,7 +13566,7 @@ window.onpopstate = function(e){
     		indexSlider = e.state.indexSlider;
 
     	href = href.replace('/', '');
-
+debugger;
     	if (href == lastUrl){
     		switch(href) {
 	        	case 'index':
@@ -14200,7 +14200,7 @@ var switchSlider = function(el, index){
 
     var title = sliderInfo[index].href;
     var url = sliderInfo[index].url;
-
+    lastUrl = sliderInfo[index].href.replace('/','');
     history.pushState(state, title, url);
 };
 

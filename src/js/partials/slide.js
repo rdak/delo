@@ -314,6 +314,6 @@ var switchSlider = function(el, index){
 
     var title = sliderInfo[index].href;
     var url = sliderInfo[index].url;
-
+    lastUrl = sliderInfo[index].href.replace('/','');
     history.pushState(state, title, url);
 };
